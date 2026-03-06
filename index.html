@@ -3,40 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dimitrios Dalaklidis — Systems & Backend Engineer</title>
+<title>Dimitrios Dalaklidis — Systems &amp; Backend Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0c0f;
-    --bg2: #0f1217;
-    --bg3: #141820;
-    --border: #1e2530;
-    --border2: #2a3444;
-    --accent: #00d4ff;
-    --accent2: #ff6b35;
-    --accent3: #39ff14;
-    --text: #c8d4e0;
-    --text-dim: #5a6a7a;
-    --text-bright: #e8f0f8;
-    --mono: 'IBM Plex Mono', monospace;
-    --sans: 'IBM Plex Sans', sans-serif;
+    --bg: #0a0c0f; --bg2: #0f1217; --bg3: #141820;
+    --border: #1e2530; --border2: #2a3444;
+    --accent: #00d4ff; --accent2: #ff6b35; --accent3: #39ff14;
+    --text: #c8d4e0; --text-dim: #5a6a7a; --text-bright: #e8f0f8;
+    --mono: 'IBM Plex Mono', monospace; --sans: 'IBM Plex Sans', sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--mono); line-height: 1.6; overflow-x: hidden; }
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none; z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
-    pointer-events: none; z-index: 0;
-  }
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
+  body::after { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px); pointer-events: none; z-index: 0; }
   .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-inner { max-width: 960px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
@@ -60,8 +41,8 @@
   .btn-primary:hover { background: #fff; transform: translateY(-2px); }
   .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--border2); }
   .btn-secondary:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); transform: translateY(-2px); }
-  .stats-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; overflow: hidden; }
-  .stats-inner { display: flex; gap: 0; justify-content: space-around; flex-wrap: wrap; }
+  .stats-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; }
+  .stats-inner { display: flex; justify-content: space-around; flex-wrap: wrap; }
   .stat { text-align: center; padding: 8px 32px; border-right: 1px solid var(--border); flex: 1; min-width: 120px; }
   .stat:last-child { border-right: none; }
   .stat-num { display: block; font-size: 28px; font-weight: 600; color: var(--accent); line-height: 1; margin-bottom: 4px; }
@@ -96,21 +77,18 @@
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .gh-link { font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.06em; border: 1px solid var(--border); padding: 4px 12px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
   .gh-link:hover { color: var(--accent); border-color: var(--accent); }
-  .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+  .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 32px; }
   .edu-degree { font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px; }
   .edu-school { font-size: 13px; color: var(--accent); margin-bottom: 12px; }
   .edu-detail { font-family: var(--sans); font-size: 13px; color: var(--text-dim); line-height: 1.6; }
-  .edu-gpa { text-align: right; }
-  .gpa-num { font-size: 40px; font-weight: 600; color: var(--accent3); line-height: 1; display: block; }
-  .gpa-label { font-size: 10px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; }
   .cert-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
   .cert-badge { font-size: 11px; padding: 4px 12px; background: rgba(57,255,20,0.08); border: 1px solid rgba(57,255,20,0.3); color: var(--accent3); letter-spacing: 0.05em; }
   .cert-label { font-size: 12px; color: var(--text-dim); font-family: var(--sans); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); }
-  .contact-cell-wide { grid-column: span 2; background: var(--bg2); padding: 28px; transition: background 0.2s; }
-  .contact-cell-wide:hover { background: var(--bg3); }
   .contact-cell { background: var(--bg2); padding: 28px; transition: background 0.2s; }
   .contact-cell:hover { background: var(--bg3); }
+  .contact-cell-wide { grid-column: span 2; background: var(--bg2); padding: 28px; transition: background 0.2s; }
+  .contact-cell-wide:hover { background: var(--bg3); }
   .contact-label { font-size: 10px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
   .contact-val { font-size: 14px; color: var(--accent); text-decoration: none; transition: color 0.2s; }
   .contact-val:hover { color: #fff; }
@@ -119,13 +97,10 @@
   .footer-text .accent { color: var(--accent); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
-  @keyframes blink { 50% { opacity: 0; } }
-  .reveal { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; }
   @media (max-width: 640px) {
-    .edu-card { grid-template-columns: 1fr; }
-    .edu-gpa { text-align: left; }
     .contact-grid { grid-template-columns: 1fr; }
+    .contact-cell-wide { grid-column: span 1; }
     .stat { min-width: 80px; padding: 8px 16px; }
     .skills-grid { grid-template-columns: 1fr; }
   }
@@ -144,16 +119,14 @@
     <p class="hero-tag">available for junior roles</p>
     <h1 class="hero-name">Dimitrios<br>Dalaklidis</h1>
     <p class="hero-title">Systems &amp; Backend Engineer</p>
-    <p class="hero-desc">
-      I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, JWT auth, and containerized deployments. Currently finishing my CS degree in Greece, open to junior roles in systems, backend, or software engineering.
-    </p>
+    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, JWT auth, and containerized deployments. Currently finishing my CS degree in Greece, open to junior roles in systems, backend, or software engineering.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 192 ECTS</div>
       <div class="meta-item"><span class="dot orange"></span> ECPE C2 English</div>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects &#8594;</a>
+      <a href="#projects" class="btn btn-primary">View Projects &rarr;</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
     </div>
   </div>
@@ -231,10 +204,8 @@
         </div>
         <p class="project-desc">Secure REST API for managing hospital patients, hospitalizations, and medical tests. Stateless JWT authentication with role-based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level. Atomic patient registration via Spring @Transactional. Full Luhn algorithm implementation for validating Greek AMKA numbers with birth-date extraction. Containerized with Docker, deployed on Kubernetes.</p>
         <div class="project-footer">
-          <div class="project-tags">
-            <span class="tag orange">Java</span><span class="tag orange">Spring Boot</span><span class="tag">MySQL</span><span class="tag orange">JWT</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span>
-          </div>
-          <a href="https://github.com/DimitriosDalaklidhs/spring-boot-Greek-hospital-system" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <div class="project-tags"><span class="tag orange">Java</span><span class="tag orange">Spring Boot</span><span class="tag">MySQL</span><span class="tag orange">JWT</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span></div>
+          <a href="https://github.com/DimitriosDalaklidhs/spring-boot-Greek-hospital-system" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -243,7 +214,7 @@
         <p class="project-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management, threading, and HTTP parsing by hand.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Winsock</span><span class="tag">Multithreading</span><span class="tag primary">HTTP</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/GitProjectServer" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/GitProjectServer" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -252,7 +223,7 @@
         <p class="project-desc">TCP client-server application in C. The client sends integers over a socket; the server computes and returns their prime factors. Demonstrates low-level socket programming and custom binary protocol design.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Sockets</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -261,7 +232,7 @@
         <p class="project-desc">TCP/IP client-server system for currency exchange operations. Focus on custom protocol design and robust socket communication in C.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Protocol Design</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/currency-exchange-server" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/currency-exchange-server" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -270,7 +241,7 @@
         <p class="project-desc">Lightweight process supervisor written in Bash for managing and auto-restarting long-running workloads in Docker and Kubernetes environments.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag green">Bash</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/process-supervisor" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/process-supervisor" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -279,7 +250,7 @@
         <p class="project-desc">Demonstrates the Unix process lifecycle: creation, child execution, and synchronization using fork(), getpid(), and wait(). Clean reference implementation of core Unix IPC primitives.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Unix</span><span class="tag">fork()</span><span class="tag">IPC</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/unix-process-management" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/unix-process-management" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -288,7 +259,7 @@
         <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed-book tracking, and automated database initialization via SQL schemas.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/Library-System-Java-MySQL" class="gh-link" target="_blank">&#8997; GitHub &#8594;</a>
+          <a href="https://github.com/DimitriosDalaklidhs/Library-System-Java-MySQL" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
 
@@ -304,16 +275,13 @@
       <div class="section-line"></div>
     </div>
     <div class="edu-card">
-      <div>
-        <div class="edu-degree">B.Sc. Computer Science (Informatics)</div>
-        <div class="edu-school">University of Western Macedonia</div>
-        <div class="edu-detail">Graduating with 192 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final-year projects include production-quality backend systems and low-level C network applications.</div>
-        <div class="cert-row">
-          <span class="cert-badge">ECPE C2</span>
-          <span class="cert-label">Michigan Proficiency — English (C2 level)</span>
-        </div>
+      <div class="edu-degree">B.Sc. Computer Science (Informatics)</div>
+      <div class="edu-school">University of Western Macedonia</div>
+      <div class="edu-detail">Graduating with 192 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final-year projects include production-quality backend systems and low-level C network applications.</div>
+      <div class="cert-row">
+        <span class="cert-badge">ECPE C2</span>
+        <span class="cert-label">Michigan Proficiency &mdash; English (C2 level)</span>
       </div>
-      <div>
     </div>
   </div>
 </section>
@@ -328,9 +296,7 @@
     <div class="contact-grid">
       <div class="contact-cell">
         <div class="contact-label">Email</div>
-        <a href="mailto:dalaklidesdemetres@gmail.com" class="contact-val">
-  dalaklidesdemetres@gmail.com
-</a>
+        <a href="EMAILPLACEHOLDER" class="contact-val">dalaklidesdemetres AT gmail DOT com</a>
       </div>
       <div class="contact-cell">
         <div class="contact-label">GitHub</div>
@@ -358,6 +324,17 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var e = 'dalaklidesdemetres';
+  var d = 'gmail.com';
+  var links = document.querySelectorAll('a[href="EMAILPLACEHOLDER"]');
+  links.forEach(function(a){
+    a.href = 'mailto:' + e + '@' + d;
+    a.textContent = e + '@' + d;
+  });
+})();
+</script>
 
 </body>
 </html>
