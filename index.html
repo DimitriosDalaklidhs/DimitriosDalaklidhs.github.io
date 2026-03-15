@@ -123,7 +123,7 @@
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 192 ECTS</div>
-      <div class="meta-item"><span class="dot orange"></span> ECPE C2 English</div>
+      <div class="meta-item"><span class="dot orange"></span> <strong style="color:var(--accent2);letter-spacing:0.08em;">ECPE C2</strong> <span style="color:var(--text);">English &mdash; Native Proficiency</span></div>
     </div>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects &rarr;</a>
@@ -205,7 +205,11 @@
         <p class="project-desc">Secure REST API for managing hospital patients, hospitalizations, and medical tests. Stateless JWT authentication with role-based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level. Atomic patient registration via Spring @Transactional. Full Luhn algorithm implementation for validating Greek AMKA numbers with birth-date extraction. Deployed on Railway.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Java</span><span class="tag orange">Spring Boot</span><span class="tag">MySQL</span><span class="tag orange">JWT</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/spring-boot-Greek-hospital-system" class="gh-link" target="_blank">GitHub &rarr;</a>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://spring-boot-greek-hospital-system-production.up.railway.app/api/auth/login" class="gh-link" target="_blank" style="border-color:rgba(57,255,20,0.4);color:var(--accent3);" title="REST API — use Postman or curl to interact">&#9679; Live API &rarr;</a>
+            <span style="font-size:10px;color:var(--text-dim);align-self:center;letter-spacing:0.04em;">// Postman or curl</span>
+            <a href="https://github.com/DimitriosDalaklidhs/spring-boot-Greek-hospital-system" class="gh-link" target="_blank">GitHub &rarr;</a>
+          </div>
         </div>
       </div>
 
@@ -279,8 +283,8 @@
       <div class="edu-school">University of Western Macedonia</div>
       <div class="edu-detail">Graduating with 192 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final-year projects include production-quality backend systems and low-level C network applications.</div>
       <div class="cert-row">
-        <span class="cert-badge">ECPE C2</span>
-        <span class="cert-label">Michigan Proficiency &mdash; English (C2 level)</span>
+        <span class="cert-badge" style="font-size:13px;padding:6px 16px;font-weight:600;">ECPE C2</span>
+        <span class="cert-label" style="color:var(--text);font-size:13px;">Michigan Proficiency &mdash; <strong style="color:var(--accent3);">English C2 (Native-equivalent)</strong></span>
       </div>
     </div>
   </div>
@@ -320,7 +324,7 @@
 
 <footer>
   <div class="container">
-    <p class="footer-text"><span class="accent">Dimitrios Dalaklidis</span> &middot; Systems &amp; Backend Engineer &middot; Greece &middot; 2026</p>
+    <p class="footer-text"><span class="accent">Dimitrios Dalaklidis</span> &middot; Systems &amp; Backend Engineer &middot; Greece &middot; 2025</p>
   </div>
 </footer>
 
