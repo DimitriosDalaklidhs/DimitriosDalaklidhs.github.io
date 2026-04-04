@@ -15,7 +15,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: var(--mono); line-height: 1.6; overflow-x: hidden; }
+  body { background: var(--bg); color: var(--text);  line-height: 1.6; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
   body::after { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px); pointer-events: none; z-index: 0; }
   .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
@@ -29,17 +29,17 @@
   .hero { padding: 140px 0 80px; min-height: 100vh; display: flex; align-items: center; }
   .hero-tag { font-size: 11px; color: var(--accent3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
   .hero-tag::before { content: '> '; color: var(--text-dim); }
-  .hero-name { font-family: var(--mono); font-size: clamp(36px, 6vw, 64px); font-weight: 600; color: var(--text-bright); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards; }
+  .hero-name {  font-size: clamp(36px, 6vw, 64px); font-weight: 600; color: var(--text-bright); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards; }
   .hero-title { font-size: 16px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards; }
   .hero-title::before { content: '// '; color: var(--text-dim); }
-  .hero-desc { font-family: var(--sans); font-size: 15px; color: var(--text); max-width: 540px; line-height: 1.75; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease 0.65s forwards; }
+  .hero-desc {  font-size: 15px; color: var(--text); max-width: 540px; line-height: 1.75; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease 0.65s forwards; }
   .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease 0.8s forwards; }
   .meta-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-dim); }
   .meta-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); animation: pulse 2s ease-in-out infinite; }
   .meta-item .dot.orange { background: var(--accent2); animation-delay: 0.5s; }
   .meta-item .dot.blue { background: var(--accent); animation-delay: 1s; }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease 0.95s forwards; }
-  .btn { padding: 10px 22px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn { padding: 10px 22px;  font-size: 12px; letter-spacing: 0.08em; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; }
   .btn-primary { background: var(--accent); color: #000; font-weight: 600; }
   .btn-primary:hover { background: #fff; transform: translateY(-2px); }
   .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--border2); }
@@ -78,23 +78,25 @@
   .project-name .comment { color: var(--text-dim); font-weight: 300; font-size: 12px; }
   .project-featured { font-size: 10px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,107,53,0.3); padding: 2px 8px; white-space: nowrap; }
   .project-oss { font-size: 10px; color: var(--accent3); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(57,255,20,0.3); padding: 2px 8px; white-space: nowrap; }
-  .project-desc { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
+  .project-desc {  font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
   .project-desc ul { margin: 10px 0 0 18px; padding: 0; }
   .project-desc li { margin-bottom: 5px; }
-  .project-desc code { font-family: var(--mono); font-size: 12px; color: var(--accent); background: rgba(0,212,255,0.06); padding: 1px 5px; border: 1px solid rgba(0,212,255,0.15); }
+  .project-desc code {  font-size: 12px; color: var(--accent); background: rgba(0,212,255,0.06); padding: 1px 5px; border: 1px solid rgba(0,212,255,0.15); }
   .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; flex-wrap: wrap; gap: 10px; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .gh-link { font-size: 11px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.06em; border: 1px solid var(--border); padding: 4px 12px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
   .gh-link:hover { color: var(--accent); border-color: var(--accent); }
   .gh-link.oss-link { border-color: rgba(57,255,20,0.3); color: var(--accent3); }
   .gh-link.oss-link:hover { border-color: var(--accent3); color: #fff; }
+  .ci-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; color: var(--accent3); background: rgba(57,255,20,0.06); border: 1px solid rgba(57,255,20,0.25); padding: 4px 10px; letter-spacing: 0.06em; margin-top: 10px; }
+  .ci-badge::before { content: '●'; font-size: 8px; }
   .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 32px; }
   .edu-degree { font-size: 16px; font-weight: 600; color: var(--text-bright); margin-bottom: 6px; }
   .edu-school { font-size: 13px; color: var(--accent); margin-bottom: 12px; }
-  .edu-detail { font-family: var(--sans); font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+  .edu-detail {  font-size: 13px; color: var(--text-dim); line-height: 1.6; }
   .cert-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
   .cert-badge { font-size: 11px; padding: 4px 12px; background: rgba(57,255,20,0.08); border: 1px solid rgba(57,255,20,0.3); color: var(--accent3); letter-spacing: 0.05em; }
-  .cert-label { font-size: 12px; color: var(--text-dim); font-family: var(--sans); }
+  .cert-label { font-size: 12px; color: var(--text-dim);  }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); }
   .contact-cell { background: var(--bg2); padding: 28px; transition: background 0.2s; }
   .contact-cell:hover { background: var(--bg3); }
@@ -137,7 +139,7 @@
     <p class="hero-tag">available for junior roles</p>
     <h1 class="hero-name">Dimitrios<br>Dalaklidis</h1>
     <p class="hero-title">Systems &amp; Backend Engineer</p>
-    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments. Open-source contributor to Amazon Ion. Currently finishing my CS degree in Greece, open to junior roles in systems, backend, or software engineering.</p>
+    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Open-source contributor to Amazon Ion. Currently finishing my CS degree in Greece, open to junior roles in systems, backend, or software engineering.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 197 ECTS</div>
@@ -196,10 +198,12 @@
         </div>
       </div>
       <div class="skill-cell">
-        <div class="skill-cat">Infrastructure &amp; Data</div>
+        <div class="skill-cat">Infrastructure &amp; DevOps</div>
         <div class="skill-items">
           <span class="tag green">Docker</span>
           <span class="tag green">Kubernetes</span>
+          <span class="tag green">GitHub Actions</span>
+          <span class="tag green">AWS (EC2/ECR)</span>
           <span class="tag purple">Redis</span>
           <span class="tag">MySQL</span>
           <span class="tag">Git</span>
@@ -264,12 +268,29 @@
 
       <div class="project-card featured">
         <div class="project-top">
-          <div><div class="project-name">api-gateway <span class="comment">// resilience engineering</span></div></div>
+          <div><div class="project-name">api-gateway <span class="comment">// resilience + CI/CD</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">High-performance API gateway in Python/FastAPI for routing requests to backend services with production-grade resilience. Implements a Redis sliding-window rate limiter via Lua scripting, exponential backoff retries, and a full circuit breaker (CLOSED / OPEN / HALF-OPEN state machine). JWT authentication and response caching built in. Includes admin endpoints for live metrics, circuit state inspection, and a mock service for controlled failure injection and testing.</p>
+        <p class="project-desc">
+          High-performance API gateway in Python/FastAPI with production-grade resilience and a full automated deployment pipeline.
+          <ul>
+            <li>Redis sliding-window rate limiter via atomic Lua scripting, circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching, and exponential backoff retries.</li>
+            <li>Full CI/CD with GitHub Actions: Redis service container spun up on every push, ruff linting, and 18 pytest-asyncio tests run automatically.</li>
+            <li>On every merge to <code>main</code>: Docker images built and pushed to AWS ECR, then deployed to an EC2 instance (eu-north-1) via SSH — zero manual steps.</li>
+            <li>Admin endpoints for live metrics, circuit state inspection, and a mock service for controlled failure injection.</li>
+          </ul>
+        </p>
+        <div class="ci-badge">CI/CD passing &mdash; GitHub Actions &rarr; AWS ECR &rarr; EC2</div>
         <div class="project-footer">
-          <div class="project-tags"><span class="tag orange">Python</span><span class="tag orange">FastAPI</span><span class="tag green">Docker</span><span class="tag purple">Redis</span><span class="tag orange">JWT</span></div>
+          <div class="project-tags">
+            <span class="tag orange">Python</span>
+            <span class="tag orange">FastAPI</span>
+            <span class="tag green">Docker</span>
+            <span class="tag green">GitHub Actions</span>
+            <span class="tag green">AWS EC2/ECR</span>
+            <span class="tag purple">Redis</span>
+            <span class="tag orange">JWT</span>
+          </div>
           <a href="https://github.com/DimitriosDalaklidhs/api-gateway" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
