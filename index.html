@@ -139,7 +139,7 @@
     <p class="hero-tag">open to roles</p>
     <h1 class="hero-name">Dimitrios<br>Dalaklidis</h1>
     <p class="hero-title">Systems &amp; Backend Engineer</p>
-    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Open-source contributor to Amazon Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
+    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Open source contributor to Amazon Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 197 ECTS</div>
@@ -226,7 +226,7 @@
         <span class="project-oss">&#9679; OSS</span>
       </div>
       <p class="project-desc">
-        Diagnosed a symbol-quoting bug in <code>FusionSexp.ImmutablePair.write()</code> affecting a production Amazon language runtime. The fix required designing a <code>quoteOperators</code> flag propagated through the write dispatch chain, a solution that emerged from a multi-round technical discussion with the project's co-creator, who identified a gap in the ion-java library itself along the way. Accepted into main.
+        Diagnosed a symbol quoting bug in <code>FusionSexp.ImmutablePair.write()</code> affecting a production Amazon language runtime. The fix required designing a <code>quoteOperators</code> flag propagated through the write dispatch chain, a solution that emerged from a technical discussion with the project's co-creator, who identified a gap in the ion-java library itself along the way. Accepted into main.
       </p>
       <div class="project-footer">
         <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Amazon Ion</span><span class="tag green">Open Source</span></div>
@@ -250,7 +250,7 @@
           <div><div class="project-name">Greek Hospital Management API <span class="comment">// Spring Boot REST</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">Secure REST API for managing hospital patients, hospitalizations, and medical tests. Stateless JWT authentication with role-based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level. Atomic patient registration via Spring @Transactional. Full Luhn algorithm implementation for validating Greek AMKA numbers with birth-date extraction. Deployed on Railway.</p>
+        <p class="project-desc">Secure REST API for managing hospital patients, hospitalizations, and medical tests. Stateless JWT authentication with role based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level. Atomic patient registration via Spring @Transactional. Full Luhn algorithm implementation for validating Greek AMKA numbers with birth date extraction. Deployed on Railway.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Java</span><span class="tag orange">Spring Boot</span><span class="tag">MySQL</span><span class="tag orange">JWT</span><span class="tag green">Docker</span></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -267,7 +267,7 @@
           <span class="project-featured">featured</span>
         </div>
         <p class="project-desc">
-          High-performance API gateway in Python/FastAPI routing requests across backend services with a Redis sliding-window rate limiter via atomic Lua scripting, a full circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching, and exponential backoff retries. Every push triggers GitHub Actions: Redis spun up, ruff linting, and 18 pytest-asyncio tests run automatically. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR, and deployed to EC2 (eu-north-1) via SSH with no manual steps. Admin endpoints expose live metrics and circuit states; a mock service supports controlled failure injection for testing.
+          High performance API gateway in Python/FastAPI routing requests across backend services with a Redis sliding window rate limiter via atomic Lua scripting, a full circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching, and exponential backoff retries. Every push triggers GitHub Actions: Redis spun up, ruff linting, and 18 pytest asyncio tests run automatically. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR, and deployed to EC2 (eu-north-1) via SSH with no manual steps. Admin endpoints expose live metrics and circuit states; a mock service supports controlled failure injection for testing.
         </p>
         <div class="ci-badge">CI/CD passing  GitHub Actions  AWS ECR  EC2</div>
         <div class="project-footer">
@@ -295,7 +295,7 @@
 
       <div class="project-card">
         <div class="project-top"><div class="project-name">tcp-prime-factors-server <span class="comment">// networking course</span></div></div>
-        <p class="project-desc">TCP client-server application in C. The client sends integers over a socket; the server computes and returns their prime factors. Demonstrates low-level socket programming and custom binary protocol design.</p>
+        <p class="project-desc">TCP client-server application in C. The client sends integers over a socket; the server computes and returns their prime factors. Demonstrates low level socket programming and custom binary protocol design.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Sockets</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -304,7 +304,7 @@
 
       <div class="project-card">
         <div class="project-top"><div class="project-name">currency-exchange-server <span class="comment">// protocol design</span></div></div>
-        <p class="project-desc">TCP/IP client-server system for currency exchange operations. Focus on custom protocol design and robust socket communication in C.</p>
+        <p class="project-desc">TCP/IP client server system for currency exchange operations. Focus on custom protocol design and robust socket communication in C.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Protocol Design</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/currency-exchange-server" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -313,7 +313,7 @@
 
       <div class="project-card">
         <div class="project-top"><div class="project-name">process-supervisor <span class="comment">// devops tooling</span></div></div>
-        <p class="project-desc">Lightweight process supervisor written in Bash for managing and auto-restarting long-running workloads in Docker and Kubernetes environments.</p>
+        <p class="project-desc">Lightweight process supervisor written in Bash for managing and autorestarting long running workloads in Docker and Kubernetes environments.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag green">Bash</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/process-supervisor" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -331,7 +331,7 @@
 
       <div class="project-card">
         <div class="project-top"><div class="project-name">Library-System-Java-MySQL <span class="comment">// full-stack desktop</span></div></div>
-        <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed-book tracking, and automated database initialization via SQL schemas.</p>
+        <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking, and automated database initialization via SQL schemas.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/Library-System-Java-MySQL" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -352,7 +352,7 @@
     <div class="edu-card">
       <div class="edu-degree">B.Sc. Computer Science (Informatics)</div>
       <div class="edu-school">University of Western Macedonia</div>
-      <div class="edu-detail">Graduating with 197 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final-year projects include production-quality backend systems and low-level C network applications.</div>
+      <div class="edu-detail">Graduating with 197 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final year projects include production quality backend systems and low level C network applications.</div>
       <div class="cert-row">
         <span class="cert-badge" style="font-size:13px;padding:6px 16px;font-weight:600;">ECPE C2</span>
         <span class="cert-label" style="color:var(--text-dim);font-size:13px;">English C2</span>
