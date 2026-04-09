@@ -31,7 +31,6 @@
   .hero-tag::before { content: '> '; color: var(--text-dim); }
   .hero-name {  font-size: clamp(36px, 6vw, 64px); font-weight: 600; color: var(--text-bright); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards; }
   .hero-title { font-size: 16px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards; }
-
   .hero-desc { font-size: 13px; color: var(--text); max-width: 540px; line-height: 1.75; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease 0.65s forwards; }
   .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease 0.8s forwards; }
   .meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-dim); }
@@ -223,14 +222,22 @@
     <div class="project-card oss">
       <div class="project-top">
         <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion</span></div></div>
-        <span class="project-oss">&#9679; OSS</span>
+        <span class="project-oss">&#9679; MERGED</span>
       </div>
       <p class="project-desc">
-        Diagnosed a symbol quoting bug in <code>FusionSexp.ImmutablePair.write()</code> affecting a production Amazon language runtime. The fix required designing a <code>quoteOperators</code> flag propagated through the write dispatch chain, a solution that emerged from a technical discussion with the project's co-creator, who identified a gap in the ion-java library itself along the way. Accepted into main.
+        Fixed a bug in <code>ActualSymbol.write()</code> where operator symbols like <code>+</code> and <code>=</code> were incorrectly quoted inside sexp contexts, violating Ion spec behavior. Applied static imports for <code>symbolVariant</code> and <code>OPERATOR</code> per project style conventions. Added test cases covering operator symbols, quoted symbols, null symbols, annotated values, and improper sexps. Completed multi-round code review with the project's co-creator — a principal engineer with 20+ years at Amazon — and accepted into main.
       </p>
       <div class="project-footer">
-        <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Amazon Ion</span><span class="tag green">Open Source</span></div>
-        <a href="https://github.com/ion-fusion/fusion-java" class="gh-link oss-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+        <div class="project-tags">
+          <span class="tag primary">Java</span>
+          <span class="tag">Amazon Ion</span>
+          <span class="tag green">Open Source</span>
+          <span class="tag green">Merged</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="https://github.com/ion-fusion/fusion-java/pull/490" class="gh-link oss-link" target="_blank">PR #490 → merged &rarr;</a>
+          <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
