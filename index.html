@@ -138,7 +138,7 @@
     <p class="hero-tag">open to roles</p>
     <h1 class="hero-name">Dimitrios<br>Dalaklidis</h1>
     <p class="hero-title">Systems &amp; Backend Engineer</p>
-    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Open source contributor to Amazon Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
+    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Two merged PRs into Amazon Ion's open source runtime, reviewed by the co-inventor of Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 197 ECTS</div>
@@ -156,7 +156,7 @@
     <div class="stat"><span class="stat-num">197</span><span class="stat-label">ECTS Credits</span></div>
     <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Projects</span></div>
     <div class="stat"><span class="stat-num">C2</span><span class="stat-label">English (ECPE)</span></div>
-    <div class="stat"><span class="stat-num">OSS</span><span class="stat-label">Amazon Ion</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">OSS</span></div>
   </div>
 </div>
 
@@ -219,26 +219,52 @@
       <span class="section-title">Open Source</span>
       <div class="section-line"></div>
     </div>
-    <div class="project-card oss">
-      <div class="project-top">
-        <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion</span></div></div>
-        <span class="project-oss">&#9679; MERGED</span>
-      </div>
-      <p class="project-desc">
-        Fixed a bug in <code>ActualSymbol.write()</code> where operator symbols like <code>+</code> and <code>=</code> were incorrectly quoted inside sexp contexts, violating Ion spec behavior. Applied static imports for <code>symbolVariant</code> and <code>OPERATOR</code> per project style conventions. Added test cases covering operator symbols, quoted symbols, null symbols, annotated values, and improper sexps. Completed multi-round code review with the project's co-creator, a principal engineer with 20+ years at Amazon. 200+ lines of code accepted into main.
-      </p>
-      <div class="project-footer">
-        <div class="project-tags">
-          <span class="tag primary">Java</span>
-          <span class="tag">Amazon Ion</span>
-          <span class="tag green">Open Source</span>
-          <span class="tag green">Merged</span>
+    <div class="projects-list">
+
+      <div class="project-card oss">
+        <div class="project-top">
+          <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion · PR #490</span></div></div>
+          <span class="project-oss">&#9679; MERGED</span>
         </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://github.com/ion-fusion/fusion-java/pull/490" class="gh-link oss-link" target="_blank">PR #490 → merged &rarr;</a>
-          <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+        <p class="project-desc">
+          Fixed a bug in <code>ActualSymbol.write()</code> where operator symbols like <code>+</code> and <code>=</code> were incorrectly quoted inside sexp contexts, violating Ion spec behavior. Applied static imports per project style conventions. Added 13 automated tests covering operator symbols, quoted symbols, null symbols, annotated values, and improper sexps. Multi-round code review with the project's co-creator, a principal engineer with 20+ years at Amazon. 200+ lines accepted into main.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag primary">Java</span>
+            <span class="tag">Amazon Ion</span>
+            <span class="tag green">Open Source</span>
+            <span class="tag green">Merged</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://github.com/ion-fusion/fusion-java/pull/490" class="gh-link oss-link" target="_blank">PR #490 → merged &rarr;</a>
+            <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+          </div>
         </div>
       </div>
+
+      <div class="project-card oss">
+        <div class="project-top">
+          <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion · PR #518</span></div></div>
+          <span class="project-oss">&#9679; MERGED</span>
+        </div>
+        <p class="project-desc">
+          Added <code>ionize(Object, IonWriter)</code> to the <code>TopLevel</code> public embedding API, placing ionization at the correct abstraction layer rather than <code>FusionRuntime</code>. Navigated package dependency constraints enforced by static analysis tooling, structural baseline maintenance, and Javadoc requirements for a public-facing interface. Reviewed and merged by Todd Jonker, co-inventor of Amazon Ion.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag primary">Java</span>
+            <span class="tag">Amazon Ion</span>
+            <span class="tag green">Public API</span>
+            <span class="tag green">Merged</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://github.com/ion-fusion/fusion-java/pull/518" class="gh-link oss-link" target="_blank">PR #518 → merged &rarr;</a>
+            <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
