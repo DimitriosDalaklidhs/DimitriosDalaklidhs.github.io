@@ -77,6 +77,7 @@
   .project-name .comment { color: var(--text-dim); font-weight: 300; font-size: 13px; }
   .project-featured { font-size: 10px; color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,107,53,0.3); padding: 2px 8px; white-space: nowrap; }
   .project-oss { font-size: 10px; color: var(--accent3); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(57,255,20,0.3); padding: 2px 8px; white-space: nowrap; }
+  .project-oss.review { color: var(--accent2); border-color: rgba(255,107,53,0.3); }
   .project-desc {  font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
   .project-desc ul { margin: 10px 0 0 18px; padding: 0; }
   .project-desc li { margin-bottom: 5px; }
@@ -138,7 +139,7 @@
     <p class="hero-tag">open to roles</p>
     <h1 class="hero-name">Dimitrios<br>Dalaklidis</h1>
     <p class="hero-title">Systems &amp; Backend Engineer</p>
-    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Two merged PRs into Amazon Ion's open source runtime, reviewed by the co-inventor of Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
+    <p class="hero-desc">I work at the low level: sockets, processes, memory, file I/O, and bridge that into production backend systems with Spring Boot, FastAPI, JWT auth, and containerized deployments on AWS. Three contributions to Amazon Ion's open source runtime, reviewed by the co-inventor of Ion. Currently finishing my CS degree in Greece, open to roles in systems, backend, or software engineering.</p>
     <div class="hero-meta">
       <div class="meta-item"><span class="dot"></span> University of Western Macedonia</div>
       <div class="meta-item"><span class="dot blue"></span> 197 ECTS</div>
@@ -156,7 +157,7 @@
     <div class="stat"><span class="stat-num">197</span><span class="stat-label">ECTS Credits</span></div>
     <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Projects</span></div>
     <div class="stat"><span class="stat-num">C2</span><span class="stat-label">English (ECPE)</span></div>
-    <div class="stat"><span class="stat-num">2</span><span class="stat-label">OSS</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">OSS</span></div>
   </div>
 </div>
 
@@ -260,6 +261,28 @@
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <a href="https://github.com/ion-fusion/fusion-java/pull/518" class="gh-link oss-link" target="_blank">PR #518 → merged &rarr;</a>
+            <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card oss">
+        <div class="project-top">
+          <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion · PR #521</span></div></div>
+          <span class="project-oss review">&#9679; UNDER REVIEW</span>
+        </div>
+        <p class="project-desc">
+          Centralized <code>FusionInterrupt → FusionInterruptedException</code> exception handling in the embedding layer. Introduced <code>EvalTask&lt;T&gt;</code> functional interface and <code>withEvaluator()</code> helper on <code>StandardTopLevel</code>, replacing repeated boilerplate across all call sites. Also fixed a missing interrupt catch in <code>StandardRuntime.ionize()</code> and <code>ionizeMaybe()</code> identified in the issue. Reviewed by Todd Jonker, co-inventor of Amazon Ion.
+        </p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag primary">Java</span>
+            <span class="tag">Amazon Ion</span>
+            <span class="tag orange">Functional Interface</span>
+            <span class="tag">Under Review</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://github.com/ion-fusion/fusion-java/pull/521" class="gh-link oss-link" target="_blank">PR #521 → under review &rarr;</a>
             <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
           </div>
         </div>
