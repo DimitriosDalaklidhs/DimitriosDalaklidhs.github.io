@@ -224,6 +224,8 @@
     transition: all 0.2s; opacity: 0;
   }
   .contact-cell:hover::after { opacity: 1; bottom: 14px; }
+  .contact-cell.no-arrow::after { display: none; }
+  .contact-cell.no-arrow:hover::after { display: none; }
   .contact-cell-wide { grid-column: span 2; background: var(--bg2); padding: 28px; transition: background 0.2s, transform 0.25s; position: relative; overflow: hidden; }
   .contact-cell-wide:hover { background: var(--bg3); transform: translateY(-3px); }
   .contact-cell-wide::after { content: '↗'; position: absolute; bottom: 10px; right: 14px; font-size: 16px; color: var(--text-dim); transition: all 0.2s; opacity: 0; }
@@ -238,6 +240,10 @@
   .footer-text .accent { color: var(--accent); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); }
+  .reveal.visible { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 
   /* custom scrollbar */
@@ -297,22 +303,22 @@
 
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat"><span class="stat-num">197</span><span class="stat-label">ECTS Credits</span></div>
-    <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Projects</span></div>
-    <div class="stat"><span class="stat-num">C2</span><span class="stat-label">English (ECPE)</span></div>
-    <div class="stat"><span class="stat-num">3</span><span class="stat-label">OSS</span></div>
+    <div class="stat reveal"><span class="stat-num">197</span><span class="stat-label">ECTS Credits</span></div>
+    <div class="stat reveal"><span class="stat-num">9+</span><span class="stat-label">Projects</span></div>
+    <div class="stat reveal"><span class="stat-num">C2</span><span class="stat-label">English (ECPE)</span></div>
+    <div class="stat reveal"><span class="stat-num">3</span><span class="stat-label">OSS</span></div>
   </div>
 </div>
 
 <section id="skills">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <span class="section-title">Technical Skills</span>
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
-      <div class="skill-cell">
+      <div class="skill-cell reveal">
         <div class="skill-cat">Languages</div>
         <div class="skill-items">
           <span class="tag primary">C</span>
@@ -322,7 +328,7 @@
           <span class="tag">SQL</span>
         </div>
       </div>
-      <div class="skill-cell">
+      <div class="skill-cell reveal">
         <div class="skill-cat">Backend / Frameworks</div>
         <div class="skill-items">
           <span class="tag orange">Spring Boot</span>
@@ -331,7 +337,7 @@
           <span class="tag orange">JWT</span>
         </div>
       </div>
-      <div class="skill-cell">
+      <div class="skill-cell reveal">
         <div class="skill-cat">Systems / Networking</div>
         <div class="skill-items">
           <span class="tag primary">TCP/IP</span>
@@ -340,7 +346,7 @@
           <span class="tag">Winsock</span>
         </div>
       </div>
-      <div class="skill-cell">
+      <div class="skill-cell reveal">
         <div class="skill-cat">Infrastructure &amp; DevOps</div>
         <div class="skill-items">
           <span class="tag green">Docker</span>
@@ -358,7 +364,7 @@
 
 <section id="oss">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <span class="section-title">Open Source</span>
       <div class="section-line"></div>
@@ -412,7 +418,7 @@
       <div class="project-card oss">
         <div class="project-top">
           <div><div class="project-name">ion-fusion/fusion-java <span class="comment">→ Amazon Ion · PR #521</span></div></div>
-          <span class="project-oss review">&#9679; UNDER REVIEW</span>
+          <span class="project-oss">&#9679; MERGED</span>
         </div>
         <p class="project-desc">
           Centralized <code>FusionInterrupt → FusionInterruptedException</code> exception handling in the embedding layer. Introduced <code>EvalTask&lt;T&gt;</code> functional interface and <code>withEvaluator()</code> helper on <code>StandardTopLevel</code>, replacing repeated boilerplate across all call sites. Also fixed a missing interrupt catch in <code>StandardRuntime.ionize()</code> and <code>ionizeMaybe()</code> identified in the issue. Reviewed by Todd Jonker, co-inventor of Amazon Ion.
@@ -422,10 +428,10 @@
             <span class="tag primary">Java</span>
             <span class="tag">Amazon Ion</span>
             <span class="tag orange">Functional Interface</span>
-            <span class="tag">Under Review</span>
+            <span class="tag green">Merged</span>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="https://github.com/ion-fusion/fusion-java/pull/521" class="gh-link oss-link" target="_blank">PR #521 → under review &rarr;</a>
+            <a href="https://github.com/ion-fusion/fusion-java/pull/521" class="gh-link oss-link" target="_blank">PR #521 → merged &rarr;</a>
             <a href="https://github.com/ion-fusion/fusion-java" class="gh-link" target="_blank">ion-fusion/fusion-java &rarr;</a>
           </div>
         </div>
@@ -437,7 +443,7 @@
 
 <section id="projects">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">03</span>
       <span class="section-title">Projects</span>
       <div class="section-line"></div>
@@ -543,12 +549,12 @@
 
 <section id="education">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">04</span>
       <span class="section-title">Education</span>
       <div class="section-line"></div>
     </div>
-    <div class="edu-card">
+    <div class="edu-card reveal">
       <div class="edu-degree">B.Sc. Computer Science (Informatics)</div>
       <div class="edu-school">University of Western Macedonia</div>
       <div class="edu-detail">Graduating with 197 ECTS. Coursework spanning systems programming, networking, algorithms, databases, and software engineering. Final year projects include production quality backend systems and low level C network applications.</div>
@@ -562,33 +568,33 @@
 
 <section id="contact">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">05</span>
       <span class="section-title">Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
-      <div class="contact-cell">
+      <div class="contact-cell reveal">
         <div class="contact-label">Email</div>
         <a href="EMAILPLACEHOLDER" class="contact-val">dalaklidesdemetres AT gmail DOT com</a>
       </div>
-      <div class="contact-cell">
+      <div class="contact-cell reveal">
         <div class="contact-label">GitHub</div>
         <a href="https://github.com/DimitriosDalaklidhs" class="contact-val" target="_blank">github.com/DimitriosDalaklidhs</a>
       </div>
-      <div class="contact-cell">
+      <div class="contact-cell reveal">
         <div class="contact-label">LinkedIn</div>
         <a href="https://linkedin.com/in/dimitris-dalaklidis-a72838397" class="contact-val" target="_blank">linkedin.com/in/dimitris-dalaklidis</a>
       </div>
-      <div class="contact-cell">
+      <div class="contact-cell no-arrow reveal">
         <div class="contact-label">Location</div>
         <span class="contact-val" style="cursor:default;">Greece</span>
       </div>
-      <div class="contact-cell">
+      <div class="contact-cell no-arrow reveal">
         <div class="contact-label">Status</div>
         <span class="contact-val" style="cursor:default; color: var(--accent3);">&#9679; Available now</span>
       </div>
-      <div class="contact-cell">
+      <div class="contact-cell no-arrow reveal">
         <div class="contact-label">Military Service</div>
         <span class="contact-val" style="cursor:default; color: var(--accent2);">&#9632; Deferred until 2031</span>
       </div>
@@ -684,12 +690,17 @@ function type(){
 }
 type();
 
-/* ── SCROLL REVEAL for project cards ── */
-const cards=document.querySelectorAll('.project-card');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); } });
-},{threshold:0.06});
-cards.forEach(c=>obs.observe(c));
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal, .project-card');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revealObs.observe(el));
 
 /* ── EMAIL OBFUSCATION ── */
 (function(){
