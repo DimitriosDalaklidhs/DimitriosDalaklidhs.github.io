@@ -29,7 +29,15 @@
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-inner { max-width: 960px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
-  .nav-logo { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+  .nav-logo { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 0; }
+  .nav-logo .logo-d { color: var(--accent); }
+  .nav-logo .logo-dot { color: var(--accent2); font-weight: 700; display: inline-block; animation: logoPulse 2.5s ease-in-out infinite; }
+  .nav-logo .logo-name { background: linear-gradient(90deg, var(--text-bright) 0%, var(--accent) 50%, var(--purple) 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: logoShift 4s ease-in-out infinite; }
+  .nav-logo::after { content: '_'; color: var(--accent3); font-weight: 400; animation: blink 0.8s step-end infinite; margin-left: 1px; }
+  .nav-logo:hover .logo-name { animation: logoShift 1s ease-in-out infinite; }
+  .nav-logo:hover .logo-dot { animation: logoPulse 0.4s ease-in-out infinite; }
+  @keyframes logoShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  @keyframes logoPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
   .nav-logo span { color: var(--text-dim); }
   .nav-links { display: flex; gap: 28px; }
   .nav-links a { font-size: 12px; font-weight: 400; color: var(--text-dim); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; position: relative; padding: 4px 2px; transition: color 0.35s cubic-bezier(0.22,1,0.36,1); display: inline-block; }
@@ -172,6 +180,10 @@
   .ci-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: var(--accent3); background: rgba(57,255,20,0.06); border: 1px solid rgba(57,255,20,0.25); padding: 4px 10px; letter-spacing: 0.04em; margin-top: 10px; }
   .ci-badge::before { content: '●'; font-size: 8px; }
 
+  /* WHITE-ACCENT PROJECT CARDS */
+  .project-card.light { --card-glow: var(--text-bright); }
+  .project-card.light::before { background: var(--text-bright); transform: scaleY(1); }
+
   /* LIVE GITHUB */
   .gh-activity { background: var(--bg2); border: 1px solid var(--border); padding: 28px; position: relative; }
   .gh-activity::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent3); }
@@ -313,7 +325,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">D<span>.</span>DALAKLIDIS</a>
+    <a href="#" class="nav-logo"><span class="logo-d">D</span><span class="logo-dot">.</span><span class="logo-name">DALAKLIDIS</span></a>
     <div class="nav-links">
       <a href="#skills" data-text="Skills">Skills</a>
       <a href="#oss" data-text="Open Source">Open Source</a>
@@ -337,7 +349,7 @@
       <div class="meta-item"><span class="dot orange"></span> <strong style="color:var(--accent2);letter-spacing:0.08em;">ECPE C2</strong></div>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects &rarr;</a>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
     </div>
   </div>
@@ -521,7 +533,7 @@
       </div></div>
 
       <div class="tilt-wrap"><div class="tilt-inner">
-      <div class="project-card">
+      <div class="project-card light">
         <div class="project-top"><div class="project-name">process-supervisor <span class="comment">→ process management</span></div></div>
         <p class="project-desc">Lightweight process supervisor written in Bash for managing and autorestarting long running workloads in Docker and Kubernetes environments.</p>
         <div class="project-footer">
@@ -532,7 +544,7 @@
       </div></div>
 
       <div class="tilt-wrap"><div class="tilt-inner">
-      <div class="project-card">
+      <div class="project-card light">
         <div class="project-top"><div class="project-name">unix-process-management <span class="comment">→ Unix internals</span></div></div>
         <p class="project-desc">Demonstrates the Unix process lifecycle: creation, child execution, and synchronization using fork(), getpid(), and wait(). Clean reference implementation of core Unix IPC primitives.</p>
         <div class="project-footer">
@@ -543,7 +555,7 @@
       </div></div>
 
       <div class="tilt-wrap"><div class="tilt-inner">
-      <div class="project-card">
+      <div class="project-card light">
         <div class="project-top"><div class="project-name">Library-System-Java-MySQL <span class="comment">→ Swing &amp; MySQL</span></div></div>
         <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking, and automated database initialization via SQL schemas.</p>
         <div class="project-footer">
