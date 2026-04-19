@@ -73,11 +73,19 @@
   .meta-item .dot.orange { background: var(--accent2); animation-delay: 0.5s; }
   .meta-item .dot.blue { background: var(--accent); animation-delay: 1s; }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease 0.95s forwards; }
-  .btn { padding: 10px 22px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; transition: all 0.2s; cursor: none; border: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); }
-  .btn-primary { background: var(--accent); color: #000; font-weight: 600; }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
-  .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--border2); }
-  .btn-secondary:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); transform: translateY(-2px); }
+
+  /* ── BUTTONS ── */
+  .btn { padding: 12px 28px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-decoration: none; cursor: none; border: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); position: relative; overflow: visible; text-transform: uppercase; transition: transform 0.15s; }
+  .btn:active { transform: translateY(0) scale(0.98); }
+  .btn .btn-text { position: relative; z-index: 2; }
+  .btn .btn-particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: visible; }
+  .btn .btn-particle { position: absolute; width: 3px; height: 3px; opacity: 0; pointer-events: none; will-change: transform, opacity; }
+
+  .btn-primary { background: var(--accent); color: #000; font-weight: 700; box-shadow: 0 0 0px var(--accent); transition: box-shadow 0.35s, transform 0.15s, background 0.2s; }
+  .btn-primary:hover { box-shadow: 0 0 24px rgba(0,212,255,0.45), 0 0 60px rgba(0,212,255,0.12); }
+
+  .btn-secondary { background: rgba(0,212,255,0.04); color: var(--accent); border: 1px solid var(--border2); transition: border-color 0.3s, color 0.3s, box-shadow 0.35s, transform 0.15s, background 0.3s; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--text-bright); box-shadow: 0 0 20px rgba(0,212,255,0.1); }
 
   .stats-bar { padding: 20px 0 40px; }
   .stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; padding: 0 24px; }
@@ -108,13 +116,11 @@
   .section-header[data-sec="05"] { --section-color: var(--accent); }
   .section-header[data-sec="06"] { --section-color: var(--accent2); }
 
-  /* 3D TILT */
   .tilt-wrap { perspective: 1200px; }
   .tilt-inner { transform-style: preserve-3d; transition: transform 0.12s ease-out; will-change: transform; position: relative; }
   .tilt-inner::after { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(0,212,255,0.08), transparent 40%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
   .tilt-wrap:hover .tilt-inner::after { opacity: 1; }
 
-  /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .skill-cell { background: var(--bg2); padding: 24px 22px; transition: background 0.2s; position: relative; overflow: hidden; border: 1px solid var(--border); }
   .skill-cell::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--cat-color, var(--accent)); opacity: 0.4; transition: opacity 0.3s; }
@@ -134,7 +140,6 @@
   .tag.green { border-color: rgba(57,255,20,0.4); color: var(--accent3); }
   .tag.purple { border-color: rgba(168,145,255,0.4); color: var(--purple); }
 
-  /* OSS TIMELINE */
   .oss-timeline { position: relative; padding: 20px 0 40px; }
   .timeline-track { position: absolute; left: 16.66%; right: 16.66%; top: 72px; height: 2px; background: linear-gradient(90deg, var(--accent3), var(--accent), var(--purple)); opacity: 0.3; }
   .timeline-track::before, .timeline-track::after { content: ''; position: absolute; top: -4px; width: 10px; height: 10px; border-radius: 50%; }
@@ -158,7 +163,6 @@
   .timeline-link { display: inline-block; font-size: 12px; font-weight: 500; color: var(--node-color, var(--accent)); text-decoration: none; margin-top: 10px; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .timeline-link:hover { border-color: var(--node-color, var(--accent)); }
 
-  /* PROJECTS */
   .projects-list { display: flex; flex-direction: column; gap: 14px; }
   .project-card { background: var(--bg2); border: 1px solid var(--border); padding: 28px 32px; position: relative; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s, background 0.2s; opacity: 0; transform: translateY(20px); }
   .project-card.visible { animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
@@ -180,11 +184,9 @@
   .ci-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: var(--accent3); background: rgba(57,255,20,0.06); border: 1px solid rgba(57,255,20,0.25); padding: 4px 10px; letter-spacing: 0.04em; margin-top: 10px; }
   .ci-badge::before { content: '●'; font-size: 8px; }
 
-  /* WHITE-ACCENT PROJECT CARDS */
   .project-card.light { --card-glow: var(--text-bright); }
   .project-card.light::before { background: var(--text-bright); transform: scaleY(1); }
 
-  /* LIVE GITHUB */
   .gh-activity { background: var(--bg2); border: 1px solid var(--border); padding: 28px; position: relative; }
   .gh-activity::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent3); }
   .gh-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
@@ -349,8 +351,8 @@
       <div class="meta-item"><span class="dot orange"></span> <strong style="color:var(--accent2);letter-spacing:0.08em;">ECPE C2</strong></div>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      <a href="#projects" class="btn btn-primary" id="btn-projects"><span class="btn-particles"></span><span class="btn-text">View Projects</span></a>
+      <a href="#contact" class="btn btn-secondary" id="btn-contact"><span class="btn-particles"></span><span class="btn-text">Get In Touch</span></a>
     </div>
   </div>
 </section>
@@ -826,6 +828,130 @@ document.querySelectorAll('.reveal, .project-card').forEach(el=>revealObs.observ
     statusEl.className='gh-status err';
     statusEl.innerHTML=`Couldn't load live data. &nbsp;<a href="https://github.com/${USER}" target="_blank" style="color:var(--accent);">View profile on GitHub &rarr;</a>`;
   }
+})();
+
+/* PIXEL SCATTER BUTTONS */
+(function initPixelButtons(){
+  const PARTICLE_COLORS_PRIMARY = ['#00d4ff','#2aeaff','#39ff14','#a891ff','#ffffff'];
+  const PARTICLE_COLORS_SECONDARY = ['#00d4ff','#a891ff','#39ff14','#2aeaff'];
+  const PARTICLE_COUNT = 28;
+
+  document.querySelectorAll('.btn').forEach(btn => {
+    const container = btn.querySelector('.btn-particles');
+    if(!container) return;
+    const isPrimary = btn.classList.contains('btn-primary');
+    const colors = isPrimary ? PARTICLE_COLORS_PRIMARY : PARTICLE_COLORS_SECONDARY;
+    const particles = [];
+
+    for(let i=0; i<PARTICLE_COUNT; i++){
+      const p = document.createElement('span');
+      p.className = 'btn-particle';
+      const size = Math.random()*3 + 2;
+      p.style.width = size+'px';
+      p.style.height = size+'px';
+      p.style.background = colors[Math.floor(Math.random()*colors.length)];
+      p.style.left = Math.random()*100+'%';
+      p.style.top = Math.random()*100+'%';
+      container.appendChild(p);
+      particles.push({el:p, size:size});
+    }
+
+    let animFrame = null;
+    let startTime = 0;
+    let isHovered = false;
+    const anims = [];
+
+    function scatter(){
+      anims.length = 0;
+      particles.forEach(({el, size}) => {
+        const angle = Math.random()*Math.PI*2;
+        const dist = 30 + Math.random()*50;
+        const tx = Math.cos(angle)*dist;
+        const ty = Math.sin(angle)*dist;
+        const originX = Math.random()*100;
+        const originY = Math.random()*100;
+        const delay = Math.random()*80;
+        const dur = 350 + Math.random()*250;
+        el.style.left = originX+'%';
+        el.style.top = originY+'%';
+        anims.push({el, tx, ty, originX, originY, delay, dur, size});
+      });
+      startTime = performance.now();
+      if(!animFrame) tick();
+    }
+
+    function gather(){
+      anims.forEach(a => {
+        a.returning = true;
+        a.returnStart = performance.now();
+        a.returnDur = 200 + Math.random()*150;
+      });
+      if(!animFrame) tick();
+    }
+
+    function tick(){
+      const now = performance.now();
+      let allDone = true;
+
+      anims.forEach(a => {
+        if(a.returning){
+          const rt = Math.min((now - a.returnStart)/a.returnDur, 1);
+          const ease = 1 - Math.pow(1 - rt, 3);
+          if(rt < 1) allDone = false;
+          const cx = a.currentTx || 0;
+          const cy = a.currentTy || 0;
+          const nx = cx * (1 - ease);
+          const ny = cy * (1 - ease);
+          a.el.style.transform = `translate(${nx}px, ${ny}px)`;
+          a.el.style.opacity = rt < 0.5 ? 0.8 : 1 - (rt-0.5)*2;
+          if(rt >= 1){
+            a.el.style.transform = 'none';
+            a.el.style.opacity = 0;
+          }
+        } else {
+          const elapsed = now - startTime - a.delay;
+          if(elapsed < 0){ allDone = false; a.el.style.opacity = 0; return; }
+          const t = Math.min(elapsed / a.dur, 1);
+          if(t < 1) allDone = false;
+          const easeOut = 1 - Math.pow(1 - t, 2.5);
+          const tx = a.tx * easeOut;
+          const ty = a.ty * easeOut;
+          a.currentTx = tx;
+          a.currentTy = ty;
+          a.el.style.transform = `translate(${tx}px, ${ty}px)`;
+          // fade: ramp up fast, hold, then fade out
+          let opacity;
+          if(t < 0.15) opacity = t / 0.15;
+          else if(t < 0.6) opacity = 1;
+          else opacity = 1 - (t - 0.6) / 0.4;
+          a.el.style.opacity = Math.max(0, opacity * 0.9);
+
+          if(t >= 1 && isHovered){
+            // re-scatter while hovered
+            a.delay = Math.random()*200;
+            a.dur = 350 + Math.random()*250;
+            const angle = Math.random()*Math.PI*2;
+            const dist = 30 + Math.random()*50;
+            a.tx = Math.cos(angle)*dist;
+            a.ty = Math.sin(angle)*dist;
+            a.el.style.left = Math.random()*100+'%';
+            a.el.style.top = Math.random()*100+'%';
+            startTime = performance.now();
+            allDone = false;
+          }
+        }
+      });
+
+      if(!allDone){
+        animFrame = requestAnimationFrame(tick);
+      } else {
+        animFrame = null;
+      }
+    }
+
+    btn.addEventListener('mouseenter', () => { isHovered = true; scatter(); });
+    btn.addEventListener('mouseleave', () => { isHovered = false; gather(); });
+  });
 })();
 </script>
 
