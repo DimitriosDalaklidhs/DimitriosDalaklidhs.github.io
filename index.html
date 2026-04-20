@@ -27,7 +27,7 @@
   #canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.45; }
   .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,15,0.92); backdrop-filter: blur(12px); }
   .nav-inner { max-width: 960px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
   .nav-logo { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-decoration: none; position: relative; display: inline-flex; align-items: center; gap: 0; }
   .nav-logo .logo-d { color: var(--accent); }
@@ -236,14 +236,15 @@
   .edu-meta-val.accent { color: var(--accent3); }
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .contact-cell { background: var(--bg2); border: 1px solid var(--border); padding: 22px 24px; position: relative; overflow: hidden; transition: background 0.2s, transform 0.25s, border-color 0.25s, box-shadow 0.25s; display: flex; align-items: flex-start; gap: 14px; }
-  .contact-cell:hover { background: var(--bg3); transform: translateY(-3px); border-color: var(--cell-accent, var(--accent)); box-shadow: 0 8px 30px -8px var(--cell-accent, var(--accent)); }
-  .contact-cell::before { content: ''; position: absolute; left: 0; top: 50%; width: 2px; height: 0; background: var(--cell-accent, var(--accent)); transition: height 0.25s, top 0.25s; }
-  .contact-cell:hover::before { height: 60%; top: 20%; }
-  .contact-cell::after { content: '↗'; position: absolute; top: 14px; right: 16px; font-size: 14px; color: var(--text-dim); transition: all 0.2s; opacity: 0; }
-  .contact-cell:hover::after { opacity: 1; color: var(--cell-accent, var(--accent)); transform: translate(3px, -3px); }
+  .contact-cell { background: var(--bg2); border: 1px solid var(--border); padding: 22px 32px; position: relative; overflow: hidden; transition: background 0.2s, transform 0.25s, border-color 0.25s, box-shadow 0.25s; display: flex; align-items: center; gap: 14px; transform: skewX(-10deg); border-radius: 999px; }
+  .contact-cell > * { transform: skewX(10deg); }
+  .contact-cell:hover { background: var(--bg3); transform: skewX(-10deg) translateY(-3px); border-color: var(--cell-accent, var(--accent)); box-shadow: 0 8px 30px -8px var(--cell-accent, var(--accent)); }
+  .contact-cell::before { content: ''; position: absolute; left: 18px; top: 50%; width: 3px; height: 0; background: var(--cell-accent, var(--accent)); transition: height 0.25s, top 0.25s; border-radius: 3px; transform: skewX(10deg); }
+  .contact-cell:hover::before { height: 50%; top: 25%; }
+  .contact-cell::after { content: '↗'; position: absolute; top: 14px; right: 16px; font-size: 14px; color: var(--text-dim); transition: all 0.2s; opacity: 0; transform: skewX(10deg); }
+  .contact-cell:hover::after { opacity: 1; color: var(--cell-accent, var(--accent)); transform: skewX(10deg) translate(3px, -3px); }
   .contact-cell.no-arrow::after { display: none; }
-  .contact-cell.no-arrow:hover { transform: none; box-shadow: none; border-color: var(--border); }
+  .contact-cell.no-arrow:hover { transform: skewX(-10deg); box-shadow: none; border-color: var(--border); }
   .contact-cell.no-arrow:hover::before { height: 0; }
   .contact-cell[data-type="email"] { --cell-accent: var(--accent); }
   .contact-cell[data-type="github"] { --cell-accent: var(--text-bright); }
@@ -287,8 +288,11 @@
   }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUpSkew { from { opacity: 0; transform: skewX(-10deg) translateY(20px); } to { opacity: 1; transform: skewX(-10deg) translateY(0); } }
   .reveal { opacity: 0; transform: translateY(24px); }
   .reveal.visible { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .contact-cell.reveal { transform: skewX(-10deg) translateY(24px); }
+  .contact-cell.reveal.visible { animation: fadeUpSkew 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 
   ::-webkit-scrollbar { width: 4px; }
