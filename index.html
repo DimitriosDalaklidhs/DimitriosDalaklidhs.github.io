@@ -72,14 +72,14 @@
   .meta-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); animation: pulse 2s ease-in-out infinite; }
   .meta-item .dot.orange { background: var(--accent2); animation-delay: 0.5s; }
   .meta-item .dot.blue { background: var(--accent); animation-delay: 1s; }
-  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease 0.95s forwards; }
+  .hero-cta { display: flex; gap: 20px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease 0.95s forwards; }
 
-  /* ── BUTTONS ── */
-  .btn { padding: 12px 28px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-decoration: none; cursor: none; border: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); position: relative; overflow: visible; text-transform: uppercase; transition: transform 0.15s; }
-  .btn:active { transform: translateY(0) scale(0.98); }
-  .btn .btn-text { position: relative; z-index: 2; }
-  .btn .btn-particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: visible; }
-  .btn .btn-particle { position: absolute; width: 3px; height: 3px; opacity: 0; pointer-events: none; will-change: transform, opacity; }
+  /* ── BUTTONS ── parallelogram with rounded ends */
+  .btn { padding: 14px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-decoration: none; cursor: none; border: none; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); position: relative; text-transform: uppercase; transition: transform 0.15s; transform: skewX(-14deg); border-radius: 999px; }
+  .btn:active { transform: skewX(-14deg) scale(0.97); }
+  .btn .btn-text { position: relative; z-index: 2; display: inline-block; transform: skewX(14deg); }
+  .btn .btn-particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; border-radius: 999px; transform: skewX(14deg); }
+  .btn .btn-particle { position: absolute; width: 3px; height: 3px; opacity: 0; pointer-events: none; will-change: transform, opacity; border-radius: 50%; }
 
   .btn-primary { background: var(--accent); color: #000; font-weight: 700; box-shadow: 0 0 0px var(--accent); transition: box-shadow 0.35s, transform 0.15s, background 0.2s; }
   .btn-primary:hover { box-shadow: 0 0 24px rgba(0,212,255,0.45), 0 0 60px rgba(0,212,255,0.12); }
