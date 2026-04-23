@@ -52,7 +52,24 @@
   .nav-links a:nth-child(4) { --link-color: var(--purple); }
   .nav-links a:nth-child(5) { --link-color: var(--accent); }
 
-  .hero { padding: 100px 0 40px; min-height: 100vh; display: flex; align-items: flex-start; padding-top: 90px; }
+.hero {
+    padding: 100px 0 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 100px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-image: 
+      linear-gradient(to right, rgba(10, 12, 15, 1) 15%, rgba(10, 12, 15, 0.6) 85%),
+      url('asset/hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #00d4ff;
+    background-blend-mode: luminosity;
+  }
   .hero-tag { font-size: 12px; font-weight: 500; color: var(--accent3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
   .hero-tag::before { content: '> '; color: var(--text-dim); }
   .hero-name { font-size: clamp(36px, 6vw, 64px); font-weight: 700; color: var(--text-bright); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards; }
@@ -295,10 +312,10 @@
   .contact-cell.reveal.visible { animation: fadeUpSkew 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border2); }
-  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
   @media (max-width: 720px) {
     .oss-timeline { padding-left: 28px; position: relative; }
