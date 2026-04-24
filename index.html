@@ -715,7 +715,28 @@ user detail layers. Deployed on Railway.</p>
 <script>
 const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+let lastScrollY=window.scrollY, scrollbarDragging=false;
+function updateCursor(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';}
+document.addEventListener('pointermove',e=>{
+  scrollbarDragging=false;
+  cursor.style.opacity='1';ring.style.opacity='1';
+  updateCursor(e);
+});
+document.addEventListener('pointerdown',e=>{
+  /* If mousedown lands on the scrollbar (clientX past the document width), flag it */
+  if(e.clientX>=document.documentElement.clientWidth){
+    scrollbarDragging=true;
+    cursor.style.opacity='0';ring.style.opacity='0';
+  }
+  updateCursor(e);
+});
+document.addEventListener('pointerup',e=>{
+  if(scrollbarDragging){
+    scrollbarDragging=false;
+    cursor.style.opacity='1';ring.style.opacity='1';
+  }
+  updateCursor(e);
+});
 (function aR(){rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(aR);})();
 document.querySelectorAll('a,.project-card,.skill-cell,.contact-cell,.btn,.timeline-node,.gh-bar').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(0,212,255,0.6)';});
