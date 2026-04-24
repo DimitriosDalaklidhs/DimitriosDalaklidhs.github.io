@@ -338,6 +338,10 @@
     body { cursor: auto; }
     #cursor, #cursor-ring { display: none; }
   }
+  /* Fix hero background glitch on mobile/touch browsers */
+  @media (hover: none), (pointer: coarse) {
+    .hero { background-attachment: scroll; }
+  }
 </style>
 </head>
 <body>
