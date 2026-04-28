@@ -139,33 +139,143 @@
   .tilt-wrap:hover .tilt-inner::after { opacity: 1; }
 
   /* ═══════════════════════════════════════════════
-     POLISHED SKILLS SECTION
+     TERMINAL SKILLS SECTION
      ═══════════════════════════════════════════════ */
-  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); }
-  .skill-cell { background: var(--bg2); padding: 28px 26px; transition: background 0.3s; position: relative; overflow: hidden; border: none; }
-  .skill-cell::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--cat-color, var(--accent)); opacity: 0; transition: opacity 0.4s; }
-  .skill-cell::after { content: ''; position: absolute; inset: 0; background: none; opacity: 0; transition: opacity 0.5s; pointer-events: none; }
-  .skill-cell:hover { background: var(--bg3); }
-  .skill-cell:hover::before { opacity: 1; }
-  .skill-cell:hover::after { opacity: 0.04; background: radial-gradient(ellipse at 30% 0%, var(--cat-color, var(--accent)), transparent 70%); }
-  .skill-cell[data-cat="lang"] { --cat-color: var(--accent); }
-  .skill-cell[data-cat="backend"] { --cat-color: var(--accent2); }
-  .skill-cell[data-cat="systems"] { --cat-color: var(--purple); }
-  .skill-cell[data-cat="infra"] { --cat-color: var(--accent3); }
-  .skill-cat { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; color: var(--cat-color, var(--text-dim)); }
-  .skill-cat::before { content: ''; width: 8px; height: 8px; background: var(--cat-color, var(--text-dim)); border-radius: 2px; box-shadow: 0 0 8px var(--cat-color, transparent); transition: box-shadow 0.3s; }
-  .skill-cell:hover .skill-cat::before { box-shadow: 0 0 16px var(--cat-color, transparent); }
-  .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-size: 12px; font-weight: 400; padding: 5px 14px; border: 1px solid var(--border2); color: var(--text); background: rgba(255,255,255,0.01); letter-spacing: 0.03em; transition: all 0.25s cubic-bezier(0.22,1,0.36,1); position: relative; }
-  .tag:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.04); transform: translateY(-1px); }
-  .tag.primary { border-color: rgba(0,212,255,0.25); color: var(--accent); }
-  .tag.primary:hover { border-color: var(--accent); background: rgba(0,212,255,0.08); box-shadow: 0 0 12px rgba(0,212,255,0.1); }
-  .tag.orange { border-color: rgba(255,107,53,0.25); color: var(--accent2); }
-  .tag.orange:hover { border-color: var(--accent2); background: rgba(255,107,53,0.08); box-shadow: 0 0 12px rgba(255,107,53,0.1); }
-  .tag.green { border-color: rgba(57,255,20,0.15); color: var(--accent3); }
-  .tag.green:hover { border-color: var(--accent3); background: rgba(57,255,20,0.08); box-shadow: 0 0 12px rgba(57,255,20,0.1); }
-  .tag.purple { border-color: rgba(168,145,255,0.3); color: var(--purple); }
-  .tag.purple:hover { border-color: var(--purple); background: rgba(168,145,255,0.08); box-shadow: 0 0 12px rgba(168,145,255,0.1); }
+  .terminal {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    font-family: 'SFMono-Regular','Consolas','Menlo',monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.35s, box-shadow 0.4s;
+  }
+  .terminal::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 3px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .terminal:hover { border-color: var(--accent); box-shadow: 0 12px 50px -15px var(--accent), inset 0 0 60px -40px var(--accent); }
+
+  /* chrome bar */
+  .terminal-bar {
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 16px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 2;
+  }
+  .terminal-dots { display: flex; gap: 7px; }
+  .td { width: 11px; height: 11px; border-radius: 50%; opacity: 0.85; }
+  .td-r { background: #ff5f56; }
+  .td-y { background: #ffbd2e; }
+  .td-g { background: var(--accent3); box-shadow: 0 0 6px var(--accent3); }
+  .terminal-path {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+  .terminal-status {
+    font-size: 10px;
+    color: var(--accent3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ts-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent3);
+    box-shadow: 0 0 6px var(--accent3);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  /* body */
+  .terminal-body {
+    padding: 22px 26px 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .term-line { white-space: pre-wrap; word-break: break-word; }
+  .term-prompt { color: var(--accent3); font-weight: 700; margin-right: 8px; }
+  .term-cmd { color: var(--text-bright); }
+  .term-out { color: var(--text); }
+  .term-dim { color: var(--text-dim); margin-bottom: 14px; font-size: 12px; }
+  .term-comment { color: var(--text-dim); font-style: italic; margin-left: 6px; font-weight: 300; }
+
+  /* category blocks */
+  .term-block {
+    margin: 12px 0 4px;
+    padding-left: 0;
+    position: relative;
+  }
+  .term-block + .term-block { margin-top: 18px; }
+  .term-block::before {
+    content: '';
+    position: absolute;
+    left: -26px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--block-color, var(--accent));
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+  .term-block:hover::before { opacity: 0.6; }
+  .term-block[data-cat="lang"]    { --block-color: var(--accent); }
+  .term-block[data-cat="backend"] { --block-color: var(--accent2); }
+  .term-block[data-cat="systems"] { --block-color: var(--purple); }
+  .term-block[data-cat="infra"]   { --block-color: var(--accent3); }
+
+  /* tokens (skills) */
+  .term-tokens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin: 6px 0 0 18px;
+    padding-bottom: 4px;
+  }
+  .term-tok {
+    color: var(--text-dim);
+    font-size: 13px;
+    cursor: default;
+    transition: color 0.2s, text-shadow 0.25s, transform 0.2s;
+    user-select: none;
+  }
+  .term-tok .tok-name {
+    color: var(--tok-color, var(--text));
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .term-tok:hover {
+    color: var(--tok-color, var(--accent));
+    transform: translateY(-1px);
+    text-shadow: 0 0 12px var(--tok-color, var(--accent));
+  }
+  .term-tok:hover .tok-name { color: var(--text-bright); }
+
+  .t-lang    { --tok-color: var(--accent); }
+  .t-backend { --tok-color: var(--accent2); }
+  .t-systems { --tok-color: var(--purple); }
+  .t-infra   { --tok-color: var(--accent3); }
+
+  /* persistent cursor at bottom */
+  .term-cursor {
+    margin-top: 22px;
+    color: var(--text-bright);
+  }
+  .term-blink {
+    display: inline-block;
+    color: var(--accent3);
+    animation: blink 0.85s step-end infinite;
+    font-weight: 700;
+    margin-left: 2px;
+  }
 
   /* ═══════════════════════════════════════════════
      POLISHED OSS TIMELINE
@@ -224,6 +334,18 @@
   .project-card.light { --card-glow: var(--text-bright); }
   .project-card.light::before { background: var(--text-bright); transform: scaleY(1); }
   .project-card.light:hover { box-shadow: 0 12px 50px -15px rgba(232,240,248,0.15), inset 0 0 50px -35px rgba(232,240,248,0.05); }
+
+  /* shared tag styles (used in projects + timeline) */
+  .tag { font-size: 12px; font-weight: 400; padding: 5px 14px; border: 1px solid var(--border2); color: var(--text); background: rgba(255,255,255,0.01); letter-spacing: 0.03em; transition: all 0.25s cubic-bezier(0.22,1,0.36,1); position: relative; }
+  .tag:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.04); transform: translateY(-1px); }
+  .tag.primary { border-color: rgba(0,212,255,0.25); color: var(--accent); }
+  .tag.primary:hover { border-color: var(--accent); background: rgba(0,212,255,0.08); box-shadow: 0 0 12px rgba(0,212,255,0.1); }
+  .tag.orange { border-color: rgba(255,107,53,0.25); color: var(--accent2); }
+  .tag.orange:hover { border-color: var(--accent2); background: rgba(255,107,53,0.08); box-shadow: 0 0 12px rgba(255,107,53,0.1); }
+  .tag.green { border-color: rgba(57,255,20,0.15); color: var(--accent3); }
+  .tag.green:hover { border-color: var(--accent3); background: rgba(57,255,20,0.08); box-shadow: 0 0 12px rgba(57,255,20,0.1); }
+  .tag.purple { border-color: rgba(168,145,255,0.3); color: var(--purple); }
+  .tag.purple:hover { border-color: var(--purple); background: rgba(168,145,255,0.08); box-shadow: 0 0 12px rgba(168,145,255,0.1); }
 
   /* ═══════════════════════════════════════════════
      POLISHED ACTIVITY SECTION
@@ -368,9 +490,11 @@
   }
   @media (max-width: 640px) {
     .contact-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-sep { display: none; }
+    .terminal-body { padding: 18px 18px 16px; }
+    .term-tokens { gap: 4px 10px; margin-left: 12px; }
+    .term-tok, .term-line { font-size: 12px; }
   }
   @media (hover: none), (pointer: coarse) {
     .hero { background-attachment: scroll; }
@@ -474,40 +598,73 @@
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-meta">The languages, frameworks, and infrastructure I reach for. From low-level C up to cloud deployments.</p>
     </div>
-    <div class="skills-grid">
-      <div class="tilt-wrap"><div class="tilt-inner">
-        <div class="skill-cell reveal" data-cat="lang">
-          <div class="skill-cat">Languages</div>
-          <div class="skill-items">
-            <span class="tag primary">C</span><span class="tag primary">Java</span><span class="tag primary">Python</span><span class="tag primary">Bash</span><span class="tag primary">SQL</span>
+
+    <div class="tilt-wrap"><div class="tilt-inner">
+    <div class="terminal reveal">
+      <!-- terminal chrome -->
+      <div class="terminal-bar">
+        <div class="terminal-dots">
+          <span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span>
+        </div>
+        <div class="terminal-path">dimitris@portfolio:~/skills</div>
+        <div class="terminal-status"><span class="ts-dot"></span> live</div>
+      </div>
+
+      <!-- terminal body -->
+      <div class="terminal-body">
+
+        <div class="term-line term-cmd"><span class="term-prompt">$</span> ls -la ./</div>
+        <div class="term-line term-out term-dim">total 4 &middot; languages/ backend/ systems/ infra/</div>
+
+        <div class="term-block" data-cat="lang">
+          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat languages.txt <span class="term-comment">: what I write in</span></div>
+          <div class="term-tokens">
+            <span class="term-tok t-lang">[<span class="tok-name">C</span>]</span>
+            <span class="term-tok t-lang">[<span class="tok-name">Java</span>]</span>
+            <span class="term-tok t-lang">[<span class="tok-name">Python</span>]</span>
+            <span class="term-tok t-lang">[<span class="tok-name">Bash</span>]</span>
+            <span class="term-tok t-lang">[<span class="tok-name">SQL</span>]</span>
           </div>
         </div>
-      </div></div>
-      <div class="tilt-wrap"><div class="tilt-inner">
-        <div class="skill-cell reveal" data-cat="backend">
-          <div class="skill-cat">Backend / Frameworks</div>
-          <div class="skill-items">
-            <span class="tag orange">Spring Boot</span><span class="tag orange">FastAPI</span><span class="tag orange">REST APIs</span><span class="tag orange">JWT</span>
+
+        <div class="term-block" data-cat="backend">
+          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat backend.txt <span class="term-comment">: frameworks &amp; APIs</span></div>
+          <div class="term-tokens">
+            <span class="term-tok t-backend">[<span class="tok-name">Spring Boot</span>]</span>
+            <span class="term-tok t-backend">[<span class="tok-name">FastAPI</span>]</span>
+            <span class="term-tok t-backend">[<span class="tok-name">REST APIs</span>]</span>
+            <span class="term-tok t-backend">[<span class="tok-name">JWT</span>]</span>
           </div>
         </div>
-      </div></div>
-      <div class="tilt-wrap"><div class="tilt-inner">
-        <div class="skill-cell reveal" data-cat="systems">
-          <div class="skill-cat">Systems / Networking</div>
-          <div class="skill-items">
-            <span class="tag purple">TCP/IP</span><span class="tag purple">Unix</span><span class="tag purple">Sockets</span><span class="tag purple">Winsock</span>
+
+        <div class="term-block" data-cat="systems">
+          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat systems.txt <span class="term-comment">: networking &amp; OS</span></div>
+          <div class="term-tokens">
+            <span class="term-tok t-systems">[<span class="tok-name">TCP/IP</span>]</span>
+            <span class="term-tok t-systems">[<span class="tok-name">Unix</span>]</span>
+            <span class="term-tok t-systems">[<span class="tok-name">Sockets</span>]</span>
+            <span class="term-tok t-systems">[<span class="tok-name">Winsock</span>]</span>
           </div>
         </div>
-      </div></div>
-      <div class="tilt-wrap"><div class="tilt-inner">
-        <div class="skill-cell reveal" data-cat="infra">
-          <div class="skill-cat">Infrastructure &amp; DevOps</div>
-          <div class="skill-items">
-            <span class="tag green">Docker</span><span class="tag green">Kubernetes</span><span class="tag green">GitHub Actions</span><span class="tag green">AWS (EC2/ECR)</span><span class="tag green">Redis</span><span class="tag green">MySQL</span><span class="tag green">Git</span>
+
+        <div class="term-block" data-cat="infra">
+          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat infra.txt <span class="term-comment">: deploy &amp; run</span></div>
+          <div class="term-tokens">
+            <span class="term-tok t-infra">[<span class="tok-name">Docker</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">Kubernetes</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">GitHub Actions</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">AWS (EC2/ECR)</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">Redis</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">MySQL</span>]</span>
+            <span class="term-tok t-infra">[<span class="tok-name">Git</span>]</span>
           </div>
         </div>
-      </div></div>
+
+        <div class="term-line term-cursor"><span class="term-prompt">$</span> <span class="term-blink">_</span></div>
+      </div>
     </div>
+    </div></div>
+
   </div>
 </section>
 
