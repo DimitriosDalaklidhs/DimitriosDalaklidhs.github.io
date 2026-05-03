@@ -387,9 +387,9 @@
   .gh-repo-lang { font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; }
   .gh-repo-stats { display: flex; gap: 14px; font-size: 11px; color: var(--text-dim); letter-spacing: 0.04em; }
 
-  /* ═══════════════════════════════════════════════
+  /*
      POLISHED CONTACT SECTION
-     ═══════════════════════════════════════════════ */
+      */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .contact-cell { background: var(--bg2); border: 1px solid var(--border); padding: 22px 32px; position: relative; overflow: hidden; transition: background 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, box-shadow 0.4s; display: flex; align-items: center; gap: 16px; transform: skewX(-10deg); border-radius: 999px; }
   .contact-cell > * { transform: skewX(10deg); }
@@ -433,9 +433,9 @@
   .edu-meta-val { font-size: 14px; font-weight: 500; color: var(--text-bright); letter-spacing: 0.02em; }
   .edu-meta-val.accent { color: var(--accent3); }
 
-  /* ═══════════════════════════════════════════════
+  /* 
      FOOTER
-     ═══════════════════════════════════════════════ */
+      */
   footer { border-top: 1px solid var(--border); padding: 56px 0 40px; position: relative; }
   footer::before { content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 20px var(--accent); margin-top: -4px; }
   .colophon { display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: start; max-width: 860px; margin: 0 auto; padding: 0 24px; }
@@ -700,7 +700,7 @@
           <div><div class="project-name">api-gateway <span class="comment">→ resilience &amp; CI/CD</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">High performance API gateway in Python/FastAPI routing requests across backend services with a Redis sliding window rate limiter via atomic Lua scripting, a full circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching, and exponential backoff retries. Every push triggers GitHub Actions: Redis spun up, ruff linting, and 18 pytest asyncio tests run automatically. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR, and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
+        <p class="project-desc">High performance API gateway in Python/FastAPI routing requests across backend services with a Redis sliding window rate limiter via atomic Lua scripting, a full circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching and exponential backoff retries. Every push triggers GitHub Actions: Redis spun up, ruff linting, and 18 pytest asyncio tests run automatically. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR, and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
         <div class="ci-badge">CI/CD passing  GitHub Actions  AWS ECR  EC2</div>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Python</span><span class="tag orange">FastAPI</span><span class="tag green">Docker</span><span class="tag green">GitHub Actions</span><span class="tag green">AWS EC2/ECR</span><span class="tag purple">Redis</span><span class="tag orange">JWT</span></div>
