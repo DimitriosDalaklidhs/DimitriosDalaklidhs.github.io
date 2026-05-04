@@ -547,7 +547,7 @@
     <div class="section-header reveal" data-sec="01">
       <div class="section-marker">01 Contributions</div>
       <h2 class="section-title">Open Source Amazon Ion</h2>
-      <p class="section-meta">Three merged pull requests to the Ion Fusion runtime, reviewed by the project's co-creator. Bug fix to public API extension to interpreter refactor.</p>
+      <p class="section-meta">Three merged PRs into the core engine. These updates fixed external connection bugs and reorganized the system's internal logic, all under the approval of the project's co-creator.</p>
     </div>
 
     <div class="oss-timeline">
@@ -701,7 +701,7 @@
           <div><div class="project-name">api-gateway <span class="comment">→ resilience &amp; CI/CD</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">High performance API gateway in Python/FastAPI routing requests across backend services with a Redis sliding window rate limiter via atomic Lua scripting, a full circuit breaker (CLOSED / OPEN / HALF-OPEN FSM), JWT auth, response caching and exponential backoff retries. Every push triggers GitHub Actions: Redis spun up, ruff linting and 18 pytest asyncio tests run automatically. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
+        <p class="project-desc">High performance API gateway in Python/FastAPI. a high-speed traffic controller for web requests. It uses a smart 'wait-in-line' system to prevent overloads and a safety switch that shuts down if the backend breaks. It handles security and caching automatically, and every time I push code, a robot runs a full battery of tests to make sure nothing is broken. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
         <div class="ci-badge">CI/CD passing  GitHub Actions  AWS ECR  EC2</div>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Python</span><span class="tag orange">FastAPI</span><span class="tag green">Docker</span><span class="tag green">GitHub Actions</span><span class="tag green">AWS EC2/ECR</span><span class="tag purple">Redis</span><span class="tag orange">JWT</span></div>
