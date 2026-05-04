@@ -416,9 +416,9 @@
   .contact-cell:hover .contact-val { color: var(--cell-accent, var(--accent)); }
   .contact-cell.no-arrow .contact-val { color: var(--cell-accent, var(--accent)); }
 
-  /* ═══════════════════════════════════════════════
+  /* 
      EDUCATION
-     ═══════════════════════════════════════════════ */
+     */
   .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 32px 36px; position: relative; overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s; }
   .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--text-bright); }
   .edu-card:hover { border-color: var(--text-bright); box-shadow: 0 0 50px -15px var(--text-bright); }
@@ -723,7 +723,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card">
         <div class="project-top"><div class="project-name">tcp-prime-factors-server <span class="comment">→ TCP/IP sockets</span></div></div>
-        <p class="project-desc">TCP client-server application in C. The client sends integers over a socket; the server computes and returns their prime factors. Demonstrates low level socket programming and custom binary protocol design.</p>
+        <p class="project-desc">TCP client-server application in C. The client sends integers over a socket and then the server computes and returns their prime factors. Demonstrates low level socket programming.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Sockets</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" class="gh-link" target="_blank">GitHub &rarr;</a>
