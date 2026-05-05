@@ -65,10 +65,9 @@
   .nav-links a.active::after { transform: scaleX(1); opacity: 0.7; }
   /* per-link colors */
   .nav-links a:nth-of-type(1) { --link-color: var(--accent2); }
-  .nav-links a:nth-of-type(2) { --link-color: var(--accent); }
-  .nav-links a:nth-of-type(3) { --link-color: var(--accent3); }
-  .nav-links a:nth-of-type(4) { --link-color: var(--purple); }
-  .nav-links a:nth-of-type(5) { --link-color: var(--accent); }
+  .nav-links a:nth-of-type(2) { --link-color: var(--accent3); }
+  .nav-links a:nth-of-type(3) { --link-color: var(--purple); }
+  .nav-links a:nth-of-type(4) { --link-color: var(--accent); }
   /* separator dots between links - hidden */
   .nav-links a:not(:last-child)::marker { display: none; }
   .nav-sep { display: none; }
@@ -128,155 +127,15 @@
   .section-header .section-title { font-size: clamp(28px, 4.2vw, 42px); color: var(--text-bright); letter-spacing: -0.02em; text-transform: none; font-weight: 700; line-height: 1.05; margin-bottom: 14px; font-family: var(--mono); }
   .section-header .section-meta { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 15px; color: var(--text-dim); letter-spacing: 0.005em; line-height: 1.5; max-width: 580px; }
   .section-header[data-sec="01"] { --section-color: var(--accent2); }
-  .section-header[data-sec="02"] { --section-color: var(--accent); }
-  .section-header[data-sec="03"] { --section-color: var(--accent3); }
-  .section-header[data-sec="04"] { --section-color: var(--purple); }
-  .section-header[data-sec="05"] { --section-color: var(--accent); }
-  .section-header[data-sec="06"] { --section-color: var(--accent2); }
+  .section-header[data-sec="02"] { --section-color: var(--accent3); }
+  .section-header[data-sec="03"] { --section-color: var(--purple); }
+  .section-header[data-sec="04"] { --section-color: var(--accent); }
+  .section-header[data-sec="05"] { --section-color: var(--accent2); }
 
   .tilt-wrap { perspective: 1200px; }
   .tilt-inner { transform-style: preserve-3d; transition: transform 0.12s ease-out; will-change: transform; position: relative; }
   .tilt-inner::after { content: ''; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(0,212,255,0.08), transparent 40%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
   .tilt-wrap:hover .tilt-inner::after { opacity: 1; }
-
-  /*
-     TERMINAL SKILLS SECTION
-     */
-  .terminal {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    font-family: 'SFMono-Regular','Consolas','Menlo',monospace;
-    font-size: 13px;
-    line-height: 1.7;
-    overflow: hidden;
-    position: relative;
-    transition: border-color 0.35s, box-shadow 0.4s;
-  }
-  .terminal::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 3px);
-    pointer-events: none;
-    z-index: 1;
-  }
-  .terminal:hover { border-color: var(--accent); box-shadow: 0 12px 50px -15px var(--accent), inset 0 0 60px -40px var(--accent); }
-
-  /* chrome bar */
-  .terminal-bar {
-    display: flex; align-items: center; gap: 14px;
-    padding: 10px 16px;
-    background: var(--bg3);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    z-index: 2;
-  }
-  .terminal-dots { display: flex; gap: 7px; }
-  .td { width: 11px; height: 11px; border-radius: 50%; opacity: 0.85; }
-  .td-r { background: #ff5f56; }
-  .td-y { background: #ffbd2e; }
-  .td-g { background: var(--accent3); box-shadow: 0 0 6px var(--accent3); }
-  .terminal-path {
-    flex: 1;
-    text-align: center;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.06em;
-  }
-  .terminal-status {
-    font-size: 10px;
-    color: var(--accent3);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .ts-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent3);
-    box-shadow: 0 0 6px var(--accent3);
-    animation: pulse 1.8s ease-in-out infinite;
-  }
-
-  /* body */
-  .terminal-body {
-    padding: 22px 26px 20px;
-    position: relative;
-    z-index: 2;
-  }
-  .term-line { white-space: pre-wrap; word-break: break-word; }
-  .term-prompt { color: var(--accent3); font-weight: 700; margin-right: 8px; }
-  .term-cmd { color: var(--text-bright); }
-  .term-out { color: var(--text); }
-  .term-dim { color: var(--text-dim); margin-bottom: 14px; font-size: 12px; }
-  .term-comment { color: var(--text-dim); font-style: italic; margin-left: 6px; font-weight: 300; }
-
-  /* category blocks */
-  .term-block {
-    margin: 12px 0 4px;
-    padding-left: 0;
-    position: relative;
-  }
-  .term-block + .term-block { margin-top: 18px; }
-  .term-block::before {
-    content: '';
-    position: absolute;
-    left: -26px; top: 0; bottom: 0;
-    width: 2px;
-    background: var(--block-color, var(--accent));
-    opacity: 0;
-    transition: opacity 0.35s;
-  }
-  .term-block:hover::before { opacity: 0.6; }
-  .term-block[data-cat="lang"]    { --block-color: var(--accent); }
-  .term-block[data-cat="backend"] { --block-color: var(--accent2); }
-  .term-block[data-cat="systems"] { --block-color: var(--purple); }
-  .term-block[data-cat="infra"]   { --block-color: var(--accent3); }
-
-  /* tokens (skills) */
-  .term-tokens {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
-    margin: 6px 0 0 18px;
-    padding-bottom: 4px;
-  }
-  .term-tok {
-    color: var(--text-dim);
-    font-size: 13px;
-    cursor: default;
-    transition: color 0.2s, text-shadow 0.25s, transform 0.2s;
-    user-select: none;
-  }
-  .term-tok .tok-name {
-    color: var(--tok-color, var(--text));
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .term-tok:hover {
-    color: var(--tok-color, var(--accent));
-    transform: translateY(-1px);
-    text-shadow: 0 0 12px var(--tok-color, var(--accent));
-  }
-  .term-tok:hover .tok-name { color: var(--text-bright); }
-
-  .t-lang    { --tok-color: var(--accent); }
-  .t-backend { --tok-color: var(--accent2); }
-  .t-systems { --tok-color: var(--purple); }
-  .t-infra   { --tok-color: var(--accent3); }
-
-  /* persistent cursor at bottom */
-  .term-cursor {
-    margin-top: 22px;
-    color: var(--text-bright);
-  }
-  .term-blink {
-    display: inline-block;
-    color: var(--accent3);
-    animation: blink 0.85s step-end infinite;
-    font-weight: 700;
-    margin-left: 2px;
-  }
 
   /* 
      POLISHED OSS TIMELINE
@@ -493,9 +352,6 @@
     .contact-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-sep { display: none; }
-    .terminal-body { padding: 18px 18px 16px; }
-    .term-tokens { gap: 4px 10px; margin-left: 12px; }
-    .term-tok, .term-line { font-size: 12px; }
   }
   @media (hover: none), (pointer: coarse) {
     .hero { background-attachment: scroll; }
@@ -510,13 +366,11 @@
     <div class="nav-links">
       <a href="#oss" data-text="Open Source"><span class="nav-num">01</span>Open Source</a>
       <span class="nav-sep"></span>
-      <a href="#skills" data-text="Skills"><span class="nav-num">02</span>Skills</a>
+      <a href="#projects" data-text="Projects"><span class="nav-num">02</span>Projects</a>
       <span class="nav-sep"></span>
-      <a href="#projects" data-text="Projects"><span class="nav-num">03</span>Projects</a>
+      <a href="#activity" data-text="Activity"><span class="nav-num">03</span>Activity</a>
       <span class="nav-sep"></span>
-      <a href="#activity" data-text="Activity"><span class="nav-num">04</span>Activity</a>
-      <span class="nav-sep"></span>
-      <a href="#contact" data-text="Contact"><span class="nav-num">05</span>Contact</a>
+      <a href="#contact" data-text="Contact"><span class="nav-num">04</span>Contact</a>
     </div>
   </div>
 </nav>
@@ -592,96 +446,19 @@
   </div>
 </section>
 
-<section id="skills">
-  <div class="container">
-    <div class="section-header reveal" data-sec="02">
-      <div class="section-marker">02 Capabilities</div>
-      <h2 class="section-title">Technical Skills</h2>
-      <p class="section-meta">The languages, frameworks and infrastructure I reach for. From low-level C up to cloud deployments.</p>
-    </div>
-
-    <div class="tilt-wrap"><div class="tilt-inner">
-    <div class="terminal reveal">
-      <!-- terminal chrome -->
-      <div class="terminal-bar">
-        <div class="terminal-dots">
-          <span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span>
-        </div>
-        <div class="terminal-path">dimitris@portfolio:~/skills</div>
-        <div class="terminal-status"><span class="ts-dot"></span> live</div>
-      </div>
-
-      <!-- terminal body -->
-      <div class="terminal-body">
-
-        <div class="term-line term-cmd"><span class="term-prompt">$</span> ls -la ./</div>
-        <div class="term-line term-out term-dim">total 4 &middot; languages/ backend/ systems/ infra/</div>
-
-        <div class="term-block" data-cat="lang">
-          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat languages.txt <span class="term-comment">: what I write in</span></div>
-          <div class="term-tokens">
-            <span class="term-tok t-lang">[<span class="tok-name">C</span>]</span>
-            <span class="term-tok t-lang">[<span class="tok-name">Java</span>]</span>
-            <span class="term-tok t-lang">[<span class="tok-name">Python</span>]</span>
-            <span class="term-tok t-lang">[<span class="tok-name">Bash</span>]</span>
-            <span class="term-tok t-lang">[<span class="tok-name">SQL</span>]</span>
-          </div>
-        </div>
-
-        <div class="term-block" data-cat="backend">
-          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat backend.txt <span class="term-comment">: frameworks &amp; APIs</span></div>
-          <div class="term-tokens">
-            <span class="term-tok t-backend">[<span class="tok-name">Spring Boot</span>]</span>
-            <span class="term-tok t-backend">[<span class="tok-name">FastAPI</span>]</span>
-            <span class="term-tok t-backend">[<span class="tok-name">REST APIs</span>]</span>
-            <span class="term-tok t-backend">[<span class="tok-name">JWT</span>]</span>
-          </div>
-        </div>
-
-        <div class="term-block" data-cat="systems">
-          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat systems.txt <span class="term-comment">: networking &amp; OS</span></div>
-          <div class="term-tokens">
-            <span class="term-tok t-systems">[<span class="tok-name">TCP/IP</span>]</span>
-            <span class="term-tok t-systems">[<span class="tok-name">Unix</span>]</span>
-            <span class="term-tok t-systems">[<span class="tok-name">Sockets</span>]</span>
-            <span class="term-tok t-systems">[<span class="tok-name">Winsock</span>]</span>
-          </div>
-        </div>
-
-        <div class="term-block" data-cat="infra">
-          <div class="term-line term-cmd"><span class="term-prompt">$</span> cat infra.txt <span class="term-comment">: deploy &amp; run</span></div>
-          <div class="term-tokens">
-            <span class="term-tok t-infra">[<span class="tok-name">Docker</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">Kubernetes</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">GitHub Actions</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">AWS (EC2/ECR)</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">Redis</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">MySQL</span>]</span>
-            <span class="term-tok t-infra">[<span class="tok-name">Git</span>]</span>
-          </div>
-        </div>
-
-        <div class="term-line term-cursor"><span class="term-prompt">$</span> <span class="term-blink">_</span></div>
-      </div>
-    </div>
-    </div></div>
-
-  </div>
-</section>
-
 <section id="projects">
   <div class="container">
-    <div class="section-header reveal" data-sec="03">
-      <div class="section-marker">03 Selected Work</div>
+    <div class="section-header reveal" data-sec="02">
+      <div class="section-marker">02 Selected Work</div>
       <h2 class="section-title">Projects</h2>
-      <p class="section-meta">Eight projects spanning REST APIs, raw socket programming and CI/CD pipelines. Deployed, not just written.</p>
+      <p class="section-meta">Seven projects spanning REST APIs, raw socket programming and CI/CD pipelines. Deployed, not just written.</p>
     </div>
     <div class="projects-list">
 
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card featured">
         <div class="project-top">
-          <div><div class="project-name">Greek Hospital Management API <span class="comment">→ Spring Boot REST</span></div></div>
+          <div><div class="project-name">Greek Hospital Management API</div></div>
           <span class="project-featured">featured</span>
         </div>
         <p class="project-desc">Due to the recent shortages in the Greek healthcare system, I was inspired to create an original software that manages hospital patients to be used by clerks and Doctors alike. To that end, I used Secure REST API for said managing of patients, but also hospitalizations as well as medical tests. The software features stateless JsonWebToken authentication, role based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level and atomic patient registration(for every individual person that is) via Spring @Transactional. Lastly, It includes a full Luhn algorithm implementation for validating Greek ΑΜΚΑ numbers with birth date extraction. Last upgrades include unit tests with JUnit 5 and Mockito.</p>
@@ -698,7 +475,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card featured">
         <div class="project-top">
-          <div><div class="project-name">api-gateway <span class="comment">→ resilience &amp; CI/CD</span></div></div>
+          <div><div class="project-name">api-gateway</div></div>
           <span class="project-featured">featured</span>
         </div>
         <p class="project-desc">Built with the aim of easing the growing issues regarding traffic in large systems(ie Netflix type services), I have launched an Python/FastAPI API gateway which is a speedy traffic controller for web requests using a smart 'wait-in-line' system to prevent overloads and a safety switch that shuts down if the backend breaks. It handles security and caching automatically, and every time I push code, a robot runs a full battery of tests to make sure nothing is broken. On every merge to <code>main</code>, Docker images are built and after that pushed to AWS ECR and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
@@ -712,18 +489,7 @@
 
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card">
-        <div class="project-top"><div class="project-name">GitProjectServer <span class="comment">→ raw HTTP in C</span></div></div>
-        <p class="project-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management.</p>
-        <div class="project-footer">
-          <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Winsock</span><span class="tag">Multithreading</span><span class="tag primary">HTTP</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/GitProjectServer" class="gh-link" target="_blank">GitHub &rarr;</a>
-        </div>
-      </div>
-      </div></div>
-
-      <div class="tilt-wrap"><div class="tilt-inner">
-      <div class="project-card">
-        <div class="project-top"><div class="project-name">tcp-prime-factors-server <span class="comment">→ TCP/IP sockets</span></div></div>
+        <div class="project-top"><div class="project-name">tcp-prime-factors-server</div></div>
         <p class="project-desc">My second ever app and a big learning experience, It has been modernized recently with Docker as have most of my projects in a consious effort to get acquainted with newer technology. TCP client server application. The client sends integers over a socket and then the server computes and returns their prime factors. Built for the distributed systems course at UowM. This was the equivalent to beginner calculator apps, only difference being that this is at the low-level.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Sockets</span></div>
@@ -733,19 +499,8 @@
       </div></div>
 
       <div class="tilt-wrap"><div class="tilt-inner">
-      <div class="project-card">
-        <div class="project-top"><div class="project-name">currency-exchange-server <span class="comment">→ custom protocol</span></div></div>
-        <p class="project-desc">TCP/IP client server system for currency exchange operations. Focus on custom protocol design and robust socket communication in C.</p>
-        <div class="project-footer">
-          <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Protocol Design</span></div>
-          <a href="https://github.com/DimitriosDalaklidhs/currency-exchange-server" class="gh-link" target="_blank">GitHub &rarr;</a>
-        </div>
-      </div>
-      </div></div>
-
-      <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card light">
-        <div class="project-top"><div class="project-name">unix-process-management <span class="comment">→ Unix internals</span></div></div>
+        <div class="project-top"><div class="project-name">unix-process-management</div></div>
         <p class="project-desc">Unix Process Management demonstrates Unix interprocess communication using a shared pipe across multiple child processes. Covers the full process lifecycle: creation, concurrent execution, and synchronization via fork(), getpid(), pipe(), and wait(). Packaged with a multi stage Docker build; no local C toolchain required. Using Docker we are able to reduce overall size by more than 70 percent and significantly reduce the attack surface. This repository was heavily inspired by "Modern Operating Systems" . The brilliant book of Andrew S. Tanenbaum and Herbert Bos.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Unix</span><span class="tag">fork()</span><span class="tag">IPC</span></div>
@@ -756,7 +511,7 @@
 
        <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card light">
-        <div class="project-top"><div class="project-name">Library-System-Java-MySQL <span class="comment">→ Swing &amp; MySQL</span></div></div>
+        <div class="project-top"><div class="project-name">Library-System-Java-MySQL</div></div>
         <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking and automated database initialization via SQL schemas.With this one, I wanted to prove that although I am a young engineer I can still work with legacy technology like SWING.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span></div>
@@ -768,11 +523,22 @@
     
        <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card light">
-        <div class="project-top"><div class="project-name">process-supervisor <span class="comment">→ process management</span></div></div>
+        <div class="project-top"><div class="project-name">process-supervisor</div></div>
         <p class="project-desc">Process supervisor written in Bash for managing and autorestarting long running workloads in Docker and Kubernetes environments.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag green">Bash</span><span class="tag green">Docker</span><span class="tag green">Kubernetes</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/process-supervisor" class="gh-link" target="_blank">GitHub &rarr;</a>
+        </div>
+      </div>
+      </div></div>
+
+      <div class="tilt-wrap"><div class="tilt-inner">
+      <div class="project-card">
+        <div class="project-top"><div class="project-name">GitProjectServer</div></div>
+        <p class="project-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management.</p>
+        <div class="project-footer">
+          <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Winsock</span><span class="tag">Multithreading</span><span class="tag primary">HTTP</span></div>
+          <a href="https://github.com/DimitriosDalaklidhs/GitProjectServer" class="gh-link" target="_blank">GitHub &rarr;</a>
         </div>
       </div>
       </div></div>
@@ -783,8 +549,8 @@
 
 <section id="activity">
   <div class="container">
-    <div class="section-header reveal" data-sec="04">
-      <div class="section-marker">04 In Progress</div>
+    <div class="section-header reveal" data-sec="03">
+      <div class="section-marker">03 In Progress</div>
       <h2 class="section-title">Live GitHub Activity</h2>
       <p class="section-meta">Commits, pull requests and repository activity from the last ninety days. Pulled in real time from the GitHub API.</p>
     </div>
@@ -821,8 +587,8 @@
 
 <section id="education">
   <div class="container">
-    <div class="section-header reveal" data-sec="05">
-      <div class="section-marker">05 Background</div>
+    <div class="section-header reveal" data-sec="04">
+      <div class="section-marker">04 Background</div>
       <h2 class="section-title">Education</h2>
       <p class="section-meta">Final year Computer Science at the University of Western Macedonia, with a C2 certificate in English from Michigan State University.</p>
     </div>
@@ -833,7 +599,7 @@
         <span class="edu-status">&#9679; Final Year</span>
       </div>
       <div class="edu-school">University of Western Macedonia</div>
-      <div class="edu-detail">Coursework spanning systems programming, networking, algorithms, databases and software engineering. Final year projects include production quality backend systems and low level C network applications.</div>
+      <div class="edu-detail">Curriculum was focused on advanced mathematics with a lot of emphasis also placed on systems programming and network design. I also was priviledged to learn from professors with Doctorates about Databases and software engineering. Final year projects include production quality backend systems and Python projects.</div>
       <div class="edu-meta">
         <div class="edu-meta-item"><span class="edu-meta-label">ECTS</span><span class="edu-meta-val">202 Credits</span></div>
         <div class="edu-meta-item"><span class="edu-meta-label">English</span><span class="edu-meta-val accent">ECPE C2</span></div>
@@ -846,8 +612,8 @@
 
 <section id="contact">
   <div class="container">
-    <div class="section-header reveal" data-sec="06">
-      <div class="section-marker">06 Get in Touch</div>
+    <div class="section-header reveal" data-sec="05">
+      <div class="section-marker">05 Get in Touch</div>
       <h2 class="section-title">Contact</h2>
       <p class="section-meta">Open to systems, backend and software engineering roles. Based in Thessaloniki, available to start now.</p>
     </div>
