@@ -684,7 +684,7 @@
           <div><div class="project-name">Greek Hospital Management API <span class="comment">→ Spring Boot REST</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">Secure REST API for managing hospital patients, hospitalizations and medical tests. Stateless JWT authentication with role based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level. Atomic patient registration via Spring @Transactional. Full Luhn algorithm implementation for validating Greek AMKA numbers with birth date extraction. Unit tested with JUnit 5 and Mockito across auth, JWT and user detail layers. Deployed on Railway.</p>
+        <p class="project-desc">Due to the recent shortages in the Greek healthcare system, I was inspired to create an original software that manages hospital patients to be used by clerks and Doctors alike. To that end, I used Secure REST API for said managing of patients, but also hospitalizations as well as medical tests. The software features stateless JsonWebToken authentication, role based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level and atomic patient registration(for every individual person that is) via Spring @Transactional. Lastly, It includes a full Luhn algorithm implementation for validating Greek ΑΜΚΑ numbers with birth date extraction. Last upgrades include unit tests with JUnit 5 and Mockito.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Java</span><span class="tag orange">Spring Boot</span><span class="tag">MySQL</span><span class="tag orange">JWT</span><span class="tag green">Docker</span></div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
@@ -701,7 +701,7 @@
           <div><div class="project-name">api-gateway <span class="comment">→ resilience &amp; CI/CD</span></div></div>
           <span class="project-featured">featured</span>
         </div>
-        <p class="project-desc">High performance API gateway in Python/FastAPI. a high-speed traffic controller for web requests. It uses a smart 'wait-in-line' system to prevent overloads and a safety switch that shuts down if the backend breaks. It handles security and caching automatically, and every time I push code, a robot runs a full battery of tests to make sure nothing is broken. On every merge to <code>main</code>, Docker images are built, pushed to AWS ECR and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
+        <p class="project-desc">Built with the aim of easing the growing issues regarding traffic in large systems(ie Netflix type services), I have launched an Python/FastAPI API gateway which is a speedy traffic controller for web requests using a smart 'wait-in-line' system to prevent overloads and a safety switch that shuts down if the backend breaks. It handles security and caching automatically, and every time I push code, a robot runs a full battery of tests to make sure nothing is broken. On every merge to <code>main</code>, Docker images are built and after that pushed to AWS ECR and deployed to EC2 (eu-north-1) via SSH with no manual steps.</p>
         <div class="ci-badge">CI/CD passing  GitHub Actions  AWS ECR  EC2</div>
         <div class="project-footer">
           <div class="project-tags"><span class="tag orange">Python</span><span class="tag orange">FastAPI</span><span class="tag green">Docker</span><span class="tag green">GitHub Actions</span><span class="tag green">AWS EC2/ECR</span><span class="tag purple">Redis</span><span class="tag orange">JWT</span></div>
@@ -713,7 +713,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card">
         <div class="project-top"><div class="project-name">GitProjectServer <span class="comment">→ raw HTTP in C</span></div></div>
-        <p class="project-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management, threading and HTTP parsing by hand.</p>
+        <p class="project-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Winsock</span><span class="tag">Multithreading</span><span class="tag primary">HTTP</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/GitProjectServer" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -724,7 +724,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card">
         <div class="project-top"><div class="project-name">tcp-prime-factors-server <span class="comment">→ TCP/IP sockets</span></div></div>
-        <p class="project-desc">TCP client-server application in C. The client sends integers over a socket and then the server computes and returns their prime factors. Demonstrates low level socket programming.</p>
+        <p class="project-desc">My second ever app and a big learning experience, It has been modernized recently with Docker as have most of my projects in a consious effort to get acquainted with newer technology. TCP client server application. The client sends integers over a socket and then the server computes and returns their prime factors. Built for the distributed systems course at UowM. This was the equivalent to beginner calculator apps, only difference being that this is at the low-level.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">TCP/IP</span><span class="tag">Sockets</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -757,7 +757,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card light">
         <div class="project-top"><div class="project-name">unix-process-management <span class="comment">→ Unix internals</span></div></div>
-        <p class="project-desc">Demonstrates the Unix process lifecycle: creation, child execution and synchronization using fork(), getpid() and wait(). Using Docker we are able to reduce overall size by more than 70 percent and significantly reduce the attack surface.</p>
+        <p class="project-desc">Unix Process Management demonstrates Unix interprocess communication using a shared pipe across multiple child processes. Covers the full process lifecycle: creation, concurrent execution, and synchronization via fork(), getpid(), pipe(), and wait(). Packaged with a multi stage Docker build; no local C toolchain required. Using Docker we are able to reduce overall size by more than 70 percent and significantly reduce the attack surface. This repository was heavily inspired by "Modern Operating Systems" . The brilliant book of Andrew S. Tanenbaum and Herbert Bos.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">C</span><span class="tag primary">Unix</span><span class="tag">fork()</span><span class="tag">IPC</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/unix-process-management" class="gh-link" target="_blank">GitHub &rarr;</a>
@@ -768,7 +768,7 @@
       <div class="tilt-wrap"><div class="tilt-inner">
       <div class="project-card light">
         <div class="project-top"><div class="project-name">Library-System-Java-MySQL <span class="comment">→ Swing &amp; MySQL</span></div></div>
-        <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking and automated database initialization via SQL schemas.</p>
+        <p class="project-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking and automated database initialization via SQL schemas.With this one, I wanted to prove that although I am a young engineer I can still work with legacy technology like SWING.</p>
         <div class="project-footer">
           <div class="project-tags"><span class="tag primary">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span></div>
           <a href="https://github.com/DimitriosDalaklidhs/Library-System-Java-MySQL" class="gh-link" target="_blank">GitHub &rarr;</a>
