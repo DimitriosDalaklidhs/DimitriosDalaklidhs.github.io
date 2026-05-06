@@ -50,12 +50,12 @@
 
   /* ── NAV LINKS ── */
   .nav-links { display: flex; gap: 6px; align-items: center; }
-  .nav-links a { font-size: 11px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; position: relative; padding: 8px 16px; transition: color 0.35s cubic-bezier(0.22,1,0.36,1), background 0.35s; display: inline-flex; align-items: center; gap: 7px; overflow: hidden; }
+  .nav-links a { font-size: 11px; font-weight: 500; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; position: relative; padding: 8px 11px; transition: color 0.35s cubic-bezier(0.22,1,0.36,1), background 0.35s; display: inline-flex; align-items: center; gap: 7px; overflow: hidden; }
   /* section number */
   .nav-links a .nav-num { font-size: 9px; font-weight: 700; color: var(--link-color, var(--accent)); opacity: 0; transform: translateX(-6px); transition: opacity 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1); font-family: 'SFMono-Regular', 'Consolas', monospace; letter-spacing: 0; }
   .nav-links a:hover .nav-num { opacity: 0.7; transform: translateX(0); }
   /* bottom glow bar */
-  .nav-links a::after { content: ''; position: absolute; left: 16px; right: 16px; bottom: 2px; height: 2px; background: var(--link-color, var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); border-radius: 2px; box-shadow: 0 0 8px var(--link-color, var(--accent)); }
+  .nav-links a::after { content: ''; position: absolute; left: 11px; right: 11px; bottom: 2px; height: 2px; background: var(--link-color, var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); border-radius: 2px; box-shadow: 0 0 8px var(--link-color, var(--accent)); }
   /* hover bg pill */
   .nav-links a:hover { color: var(--text-bright); background: rgba(255,255,255,0.03); }
   .nav-links a:hover::after { transform: scaleX(1); }
@@ -68,6 +68,7 @@
   .nav-links a:nth-of-type(2) { --link-color: var(--accent3); }
   .nav-links a:nth-of-type(3) { --link-color: var(--purple); }
   .nav-links a:nth-of-type(4) { --link-color: var(--accent); }
+  .nav-links a:nth-of-type(5) { --link-color: var(--accent2); }
   /* separator dots between links - hidden */
   .nav-links a:not(:last-child)::marker { display: none; }
   .nav-sep { display: none; }
@@ -364,13 +365,15 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo"><span class="logo-d">D</span><span class="logo-dot">.</span><span class="logo-name">DALAKLIDIS</span></a>
     <div class="nav-links">
-      <a href="#oss" data-text="Open Source"><span class="nav-num">01</span>Open Source</a>
+      <a href="#oss" data-text="OSS"><span class="nav-num">01</span>OSS</a>
       <span class="nav-sep"></span>
       <a href="#projects" data-text="Projects"><span class="nav-num">02</span>Projects</a>
       <span class="nav-sep"></span>
       <a href="#activity" data-text="Activity"><span class="nav-num">03</span>Activity</a>
       <span class="nav-sep"></span>
-      <a href="#contact" data-text="Contact"><span class="nav-num">04</span>Contact</a>
+      <a href="#education" data-text="Education"><span class="nav-num">04</span>Education</a>
+      <span class="nav-sep"></span>
+      <a href="#contact" data-text="Contact"><span class="nav-num">05</span>Contact</a>
     </div>
   </div>
 </nav>
@@ -599,7 +602,7 @@
         <span class="edu-status">&#9679; Final Year</span>
       </div>
       <div class="edu-school">University of Western Macedonia</div>
-      <div class="edu-detail">Curriculum was focused on advanced mathematics with a lot of emphasis also placed on systems programming and network design. I also was priviledged to attend programs of top professors, with Doctorates from notable Universities, about databases and software engineering. Final year projects include production quality backend systems and Python projects.</div>
+      <div class="edu-detail">Curriculum was focused on advanced mathematics with a lot of emphasis also placed on systems programming and network design. I also was privileged to attend programs of top professors, with Doctorates from notable Universities, about databases and software engineering. Final year projects include production quality backend systems and Python projects.</div>
       <div class="edu-meta">
         <div class="edu-meta-item"><span class="edu-meta-label">ECTS</span><span class="edu-meta-val">202 Credits</span></div>
         <div class="edu-meta-item"><span class="edu-meta-label">English</span><span class="edu-meta-val accent">ECPE C2</span></div>
