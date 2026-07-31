@@ -4,8 +4,61 @@
 <meta charset="UTF-8">
 <meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dimitrios Dalaklidis</title>
-<meta name="description" content="Systems and backend engineer. C and Java, low-level network programming, production REST services, and merged contributions to Amazon Ion.">
+
+<title>Dimitrios Dalaklidis — Systems &amp; Backend Engineer</title>
+<meta name="description" content="Dimitrios Dalaklidis (Δημήτριος Δαλακλίδης) — systems and backend engineer in Thessaloniki. C, Java, Spring Boot, and three merged pull requests to Amazon Ion.">
+<link rel="canonical" href="https://dimitriosdalaklidhs.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dimitrios Dalaklidis — Systems &amp; Backend Engineer">
+<meta property="og:description" content="C and Java, systems programming, production REST services, and merged contributions to Amazon Ion.">
+<meta property="og:url" content="https://dimitriosdalaklidhs.github.io/">
+<meta property="og:site_name" content="Dimitrios Dalaklidis">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dimitrios Dalaklidis",
+  "alternateName": ["Δημήτριος Δαλακλίδης", "Dimitris Dalaklidis"],
+  "jobTitle": "Systems & Backend Engineer",
+  "url": "https://dimitriosdalaklidhs.github.io/",
+  "nationality": "Greek",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Thessaloniki",
+    "addressCountry": "GR"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Western Macedonia",
+    "sameAs": "https://www.uowm.gr/"
+  },
+  "knowsAbout": [
+    "C",
+    "Java",
+    "Spring Boot",
+    "Systems programming",
+    "Backend development",
+    "Network programming",
+    "Time-series analysis"
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "https://orcid.org/0009-0005-5798-1545"
+  },
+  "sameAs": [
+    "https://github.com/DimitriosDalaklidhs",
+    "https://www.linkedin.com/in/dimitris-dalaklidis-a72838397",
+    "https://orcid.org/0009-0005-5798-1545",
+    "https://doi.org/10.5281/zenodo.21722897"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script>document.documentElement.className+=' js';</script>
@@ -94,15 +147,15 @@
   }
   .brand .b1{color:var(--accent);}
   .brand .cur{color:var(--rule-2);}
-  .nav-links{display:flex;gap:4px;}
+  .nav-links{display:flex;gap:2px;}
   .nav-links a{
     position:relative;font-family:var(--mono);font-size:11px;font-weight:500;
     letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);
-    text-decoration:none;padding:8px 12px;transition:color var(--t-fast) var(--ease-soft);
+    text-decoration:none;padding:8px 10px;transition:color var(--t-fast) var(--ease-soft);
   }
   .nav-links a .n{color:var(--faint);margin-right:7px;transition:color var(--t-fast) var(--ease-soft);}
   .nav-links a::after{
-    content:'';position:absolute;left:12px;right:12px;bottom:4px;height:1px;
+    content:'';position:absolute;left:10px;right:10px;bottom:4px;height:1px;
     background:var(--accent);transform:scaleX(0);transform-origin:left;
     transition:transform .3s var(--ease);
   }
@@ -429,7 +482,7 @@
   .gh-repo-lang{font-family:var(--mono);font-size:11px;color:var(--muted);}
   .gh-repo-stat{font-family:var(--mono);font-size:11px;color:var(--accent);}
 
-  /* ───────────── EDUCATION ───────────── */
+  /* ───────────── EDUCATION / RESEARCH PANEL ───────────── */
   .edu{background:var(--surface);border:1px solid var(--rule);padding:40px 42px;box-shadow:var(--e1),var(--edge);}
   .edu-head{
     display:flex;justify-content:space-between;align-items:baseline;gap:16px;
@@ -461,6 +514,13 @@
     letter-spacing:-0.02em;
   }
   .edu-m .v.sig{color:var(--accent);}
+
+  /* ───────────── RESEARCH ───────────── */
+  .pub-alt{
+    font-family:var(--body);font-size:14.5px;font-style:italic;
+    color:var(--muted);line-height:1.6;margin:0 0 16px;max-width:70ch;
+  }
+  .pub-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
 
   /* ───────────── CONTACT ───────────── */
   .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
@@ -537,7 +597,7 @@
   .js .cc:nth-child(5).in{animation-delay:280ms;}
   .js .cc:nth-child(6).in{animation-delay:350ms;}
 
-  /* slow ring on the three indicators that mean "running right now" */
+  /* slow ring on the indicators that mean "running right now" */
   @keyframes ping{
     0%{box-shadow:0 0 0 0 var(--accent-line);}
     70%{box-shadow:0 0 0 7px rgba(0,0,0,0);}
@@ -556,6 +616,11 @@
   ::-webkit-scrollbar-thumb:hover{background:var(--muted);}
 
   /* ───────────── RESPONSIVE ───────────── */
+  @media (max-width:1060px){
+    .nav-links a{padding:8px 7px;letter-spacing:0.06em;}
+    .nav-links a::after{left:7px;right:7px;}
+    .nav-links a .n{margin-right:5px;}
+  }
   @media (max-width:1000px){
     .proj{grid-template-columns:44px minmax(0,1fr);gap:0 20px;}
     .proj-side{grid-column:2;flex-direction:row;flex-wrap:wrap;margin-top:20px;}
@@ -610,8 +675,9 @@
       <a href="#oss"><span class="n">01</span>OSS</a>
       <a href="#projects"><span class="n">02</span>Work</a>
       <a href="#activity"><span class="n">03</span>Activity</a>
-      <a href="#education"><span class="n">04</span>Education</a>
-      <a href="#contact"><span class="n">05</span>Contact</a>
+      <a href="#research"><span class="n">04</span>Research</a>
+      <a href="#education"><span class="n">05</span>Education</a>
+      <a href="#contact"><span class="n">06</span>Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Get in touch</a>
   </div>
@@ -642,6 +708,7 @@
       <div class="hstat"><div class="v">4<span class="u">Year Degree</span></div><div class="k">Informatics · UoWM</div></div>
       <div class="hstat"><div class="v">C2<span class="u"></span></div><div class="k">ECPE</div></div>
       <div class="hstat"><div class="v">OSS<span class="u"></span></div><div class="k">ion fusion (Amazon)</div></div>
+      <div class="hstat"><div class="v">DOI<span class="u"></span></div><div class="k">Zenodo · 10.5281/zenodo.21722897</div></div>
     </div>
     <div class="hero-cta lift d7">
       <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -859,10 +926,38 @@
   </div>
 </section>
 
+<section id="research">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="num">04</span> Published <span class="rule"></span></div>
+      <h2 class="sec-title">Research</h2>
+      <p class="sec-sub">A technical report on time-series preprocessing, deposited on Zenodo with a permanent DOI.</p>
+    </div>
+    <div class="edu reveal">
+      <div class="edu-head">
+        <h3 class="edu-deg">Segmentation and Sampling in Time-Series Data</h3>
+        <span class="edu-status">● Published</span>
+      </div>
+      <p class="pub-alt">Η Σημασία της Διαχείρισης Χρόνου και Χώρου: Segmentation και Δειγματοληψία σε Δεδομένα Χρονοσειρών</p>
+      <div class="edu-school">Zenodo · technical report · not peer reviewed</div>
+      <p class="edu-detail">How sampling and windowing decisions bound the information available to every downstream algorithm. Covers the Nyquist–Shannon criterion and aliasing, resampling and interpolation for aligning sensors running at different rates, sliding-window versus event-based segmentation, label noise at window boundaries, and how overlapping windows leak data across the train/test split when the split happens after windowing instead of at source level. Written in Greek with an English abstract; eight references and six original figures generated in Python.</p>
+      <div class="edu-meta">
+        <div class="edu-m"><div class="k">Publisher</div><div class="v">Zenodo</div></div>
+        <div class="edu-m"><div class="k">Deposited</div><div class="v">July 2026</div></div>
+        <div class="edu-m"><div class="k">Language</div><div class="v">Greek</div></div>
+        <div class="edu-m"><div class="k">Licence</div><div class="v sig">CC BY 4.0</div></div>
+      </div>
+      <div class="pub-actions">
+        <a class="proj-link live" href="https://doi.org/10.5281/zenodo.21722897" target="_blank" rel="noopener">doi.org/10.5281/zenodo.21722897</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="education">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">04</span> Background <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">05</span> Background <span class="rule"></span></div>
       <h2 class="sec-title">Education</h2>
       <p class="sec-sub">4-year Informatics degree completed at the University of Western Macedonia, with a C2 certificate in English from the University of Michigan.</p>
     </div>
@@ -885,7 +980,7 @@
 <section id="contact">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">05</span> Get in Touch <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">06</span> Get in Touch <span class="rule"></span></div>
       <h2 class="sec-title">Contact</h2>
       <p class="sec-sub">Open to systems, backend and software engineering roles. Based in Thessaloniki, available to start now.</p>
     </div>
@@ -904,6 +999,11 @@
         <span class="ext" aria-hidden="true">↗</span>
         <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-8H5.7v8h2.6zM7 9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.2v-4.6c0-2.5-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.4v-1.2h-2.6v8h2.6V14c0-.2 0-.5.1-.6.2-.5.6-1 1.4-1 1 0 1.4.7 1.4 1.8v4h2.6z"/></svg></div>
         <div class="cc-body"><div class="cc-k">LinkedIn</div><div class="cc-v">dimitris-dalaklidis</div></div>
+      </a>
+      <a href="https://orcid.org/0009-0005-5798-1545" class="cc link reveal" target="_blank" rel="noopener">
+        <span class="ext" aria-hidden="true">↗</span>
+        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9v7M9 6.6v.01M13 9h1.6a3.5 3.5 0 0 1 0 7H13V9z"/></svg></div>
+        <div class="cc-body"><div class="cc-k">ORCID</div><div class="cc-v">0009-0005-5798-1545</div></div>
       </a>
       <div class="cc static reveal">
         <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s-7-7.58-7-13a7 7 0 1 1 14 0c0 5.42-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
