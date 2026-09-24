@@ -2,30 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#15181A">
 
-<title>Dimitrios Dalaklidis - Systems &amp; Backend Engineer</title>
-<meta name="description" content="Dimitrios Dalaklidis (Δημήτριος Δαλακλίδης) — systems and backend engineer in Thessaloniki. C, Java, Spring Boot, and three merged pull requests to Amazon Ion.">
+<title>Dimitrios Dalaklidis — Systems &amp; Backend Engineer</title>
+<meta name="description" content="Dimitrios Dalaklidis (Δημήτριος Δαλακλίδης), systems and backend engineer in Thessaloniki: C, Java, Spring Boot, and four merged PRs to Ion Fusion (Amazon Ion).">
+<meta name="author" content="Dimitrios Dalaklidis">
 <link rel="canonical" href="https://dimitriosdalaklidhs.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315181A'/%3E%3Cpath fill='%2374B79B' fill-rule='evenodd' d='M16 13h14c11.6 0 19 7.4 19 19s-7.4 19-19 19H16zm8 8v22h6c6.6 0 11-4.4 11-11s-4.4-11-11-11z'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Dimitrios Dalaklidis — Systems &amp; Backend Engineer">
-<meta property="og:description" content="C and Java, systems programming, production REST services, and merged contributions to Amazon Ion.">
+<meta property="og:description" content="C and Java, systems programming, backend services, and four merged pull requests to Ion Fusion (Amazon Ion).">
 <meta property="og:url" content="https://dimitriosdalaklidhs.github.io/">
 <meta property="og:site_name" content="Dimitrios Dalaklidis">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://dimitriosdalaklidhs.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dimitrios Dalaklidis, Systems and Backend Engineer. Four merged pull requests to Ion Fusion.">
+<meta property="profile:first_name" content="Dimitrios">
+<meta property="profile:last_name" content="Dalaklidis">
+<meta name="twitter:card" content="summary_large_image">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Dimitrios Dalaklidis",
-  "alternateName": ["Δημήτριος Δαλακλίδης", "Dimitris Dalaklidis"],
+  "givenName": "Dimitrios",
+  "familyName": "Dalaklidis",
+  "alternateName": ["Δημήτριος Δαλακλίδης", "Δημήτρης Δαλακλίδης", "Dimitris Dalaklidis", "Dimitrios Dalaklidhs"],
   "jobTitle": "Systems & Backend Engineer",
+  "description": "Systems and backend engineer working in C and Java; contributor to Ion Fusion, a programming language built on Amazon Ion.",
   "url": "https://dimitriosdalaklidhs.github.io/",
-  "nationality": "Greek",
+  "nationality": { "@type": "Country", "name": "Greece" },
+  "knowsLanguage": ["el", "en"],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Thessaloniki",
@@ -39,10 +52,14 @@
   "knowsAbout": [
     "C",
     "Java",
+    "Python",
     "Spring Boot",
+    "FastAPI",
     "Systems programming",
     "Backend development",
     "Network programming",
+    "Docker",
+    "Kubernetes",
     "Time-series analysis"
   ],
   "identifier": {
@@ -62,7 +79,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script>document.documentElement.className+=' js';</script>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     /* surface — near-black with a green-grey cast, never pure #000 */
@@ -80,13 +97,13 @@
     --rule:     #2A2F31;
     --rule-2:   #3D4447;
 
-    /* accent — jade marks anything verified: merged, passing, live */
+    /* accent — jade marks anything verified: merged, passing, published */
     --accent:      #74B79B;
     --accent-mid:  #8CC7AE;
     --accent-soft: rgba(116,183,155,0.10);
     --accent-line: rgba(116,183,155,0.32);
 
-    /* signal — in-progress / attention only */
+    /* signal — attention only: a failing check, the wrong output in a bug fix */
     --signal:      #D2A15C;
     --signal-soft: rgba(210,161,92,0.10);
 
@@ -110,6 +127,7 @@
     --shell: 1080px;
   }
 
+  [hidden]{display:none!important;}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
   body{
@@ -124,8 +142,17 @@
   ::selection{background:var(--accent);color:var(--paper);}
   a{color:inherit;}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  main:focus{outline:none;}
 
   .shell{max-width:var(--shell);margin:0 auto;padding:0 32px;}
+
+  .skip{
+    position:absolute;left:16px;top:-60px;z-index:200;
+    font-family:var(--mono);font-size:12px;font-weight:500;text-decoration:none;
+    background:var(--ink);color:var(--paper);padding:10px 14px;
+    transition:top var(--t-fast) var(--ease-soft);
+  }
+  .skip:focus{top:12px;}
 
   /* ───────────── HEADER ───────────── */
   #nav{
@@ -162,6 +189,7 @@
   .nav-links a:hover,.nav-links a.active{color:var(--ink);}
   .nav-links a:hover .n,.nav-links a.active .n{color:var(--accent);}
   .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+  .nav-right{display:flex;align-items:center;gap:10px;}
   .nav-cta{
     font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.08em;
     text-transform:uppercase;color:var(--ink);text-decoration:none;
@@ -169,6 +197,16 @@
     transition:background var(--t-mid) var(--ease-soft),border-color var(--t-mid) var(--ease-soft),color var(--t-mid) var(--ease-soft);
   }
   .nav-cta:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+  /* menu button — only exists below the breakpoint where the links stop fitting */
+  .nav-toggle{
+    display:none;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+    background:transparent;border:1px solid var(--rule-2);cursor:pointer;
+    transition:border-color var(--t-mid) var(--ease-soft);
+  }
+  .nav-toggle:hover{border-color:var(--ink);}
+  .nav-toggle span{display:block;width:16px;height:1.5px;background:var(--ink);transition:transform var(--t-mid) var(--ease);}
+  #nav.open .nav-toggle span:first-child{transform:translateY(3.25px) rotate(45deg);}
+  #nav.open .nav-toggle span:last-child{transform:translateY(-3.25px) rotate(-45deg);}
 
   /* ───────────── HERO ───────────── */
   .hero{padding:152px 0 96px;}
@@ -200,6 +238,12 @@
   @keyframes lineUp{to{transform:translateY(0);}}
   .hero h1 .l2{color:var(--accent);}
 
+  /* Greek spelling of the name — real text, so Greek searches find the page */
+  .hero-alt{
+    font-family:var(--body);font-size:15px;font-weight:500;letter-spacing:0.02em;
+    color:var(--muted);margin:-8px 0 22px;
+  }
+
   .hero-role{
     font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.16em;
     text-transform:uppercase;color:var(--ink);margin-bottom:20px;
@@ -207,19 +251,21 @@
 
   /* capability strip — the four things, stated plainly */
   .hero-tw{
-    position:relative;min-height:22px;
+    position:relative;overflow:hidden;
     font-family:var(--mono);font-size:12px;color:var(--muted);
     padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
     margin-bottom:34px;
   }
-  /* no JS: all four sit in flow. with JS: they crossfade in place. */
+  /* no JS: all four sit in flow. with JS: they share one grid cell and crossfade in place,
+     so the strip keeps its height without absolute positioning */
   .hero-tw .ph{display:inline-flex;align-items:center;gap:10px;margin-right:18px;}
   .hero-tw .ph::before{
     content:'';width:4px;height:4px;background:var(--accent);
     transform:rotate(45deg);flex-shrink:0;
   }
+  .js .hero-tw{display:grid;}
   .js .hero-tw .ph{
-    position:absolute;top:14px;left:0;margin-right:0;white-space:nowrap;
+    grid-area:1/1;margin-right:0;white-space:nowrap;
     opacity:0;transform:translateY(5px);
     transition:opacity var(--t-slow) var(--ease-soft),transform var(--t-slow) var(--ease);
   }
@@ -296,44 +342,72 @@
     white-space:nowrap;
   }
 
-  /* ───────────── OSS ───────────── */
-  .oss{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .oss-card{
-    background:var(--surface);border:1px solid var(--rule);
-    display:flex;flex-direction:column;box-shadow:var(--e1),var(--edge);
-    transition:border-color var(--t-mid) var(--ease-soft),
-               transform var(--t-mid) var(--ease),
-               box-shadow var(--t-mid) var(--ease-soft);
+  /* ───────────── OSS · MERGE LOG ───────────── */
+  /* the PRs are a real sequence in time, so they sit on a rail like git log --graph:
+     main runs down the left, each PR is a short branch curving in at its merge commit */
+  .mlog{
+    --gutter:64px; --rail:18px; --branch:26px;
+    position:relative;list-style:none;max-width:880px;padding:28px 0 0 var(--gutter);
   }
-  .oss-card:hover{
-    border-color:var(--accent-line);transform:translateY(-4px);
-    box-shadow:var(--e3),var(--edge);
+  .mlog::before{
+    content:'';position:absolute;left:calc(var(--rail) - 1px);top:0;bottom:12px;width:2px;
+    background:linear-gradient(to bottom,var(--accent) 0%,var(--accent-line) 78%,rgba(116,183,155,0) 100%);
+    transform-origin:top;
   }
-  .oss-top{
-    padding:16px 22px;border-bottom:1px solid var(--rule);
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  .mlog-item{position:relative;padding-bottom:52px;}
+  .mlog-item:last-child{padding-bottom:4px;}
+  .mlog-item::before{
+    content:'';position:absolute;left:calc(var(--rail) - var(--gutter));top:-18px;
+    width:var(--branch);height:31px;
+    border:solid var(--accent-line);border-width:0 2px 2px 0;border-bottom-right-radius:18px;
   }
-  .oss-pr{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink);}
-  .oss-pr .hash{color:var(--faint);}
+  .mlog-item::after{
+    content:'';position:absolute;left:calc(var(--rail) - var(--gutter) + var(--branch) - 6px);top:-23px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--accent-line);
+  }
+  .mlog-node{
+    position:absolute;left:calc(var(--rail) - var(--gutter) - 8px);top:4px;
+    width:16px;height:16px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--accent-line);
+  }
+  .mlog-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-bottom:10px;}
+  .mlog-pr{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink);}
+  .mlog-date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--muted);}
+  .mlog-kind{
+    font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--rule-2);padding:2px 8px;
+  }
   .oss-badge{
-    font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:0.14em;
+    font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.14em;
     color:var(--accent);background:var(--accent-soft);
-    border:1px solid var(--accent-line);padding:3px 8px;
+    border:1px solid var(--accent-line);padding:2px 8px;
   }
-  .oss-body{padding:24px 22px;flex:1;display:flex;flex-direction:column;}
-  .oss-h{
-    font-family:var(--display);font-size:18px;font-weight:700;color:var(--ink);
-    letter-spacing:-0.02em;margin-bottom:6px;
+  .mlog-title{
+    font-family:var(--display);font-size:21px;font-weight:700;color:var(--ink);
+    letter-spacing:-0.02em;line-height:1.28;margin-bottom:10px;
   }
-  .oss-tag{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:18px;}
-  .oss-text{font-size:14.5px;line-height:1.68;color:var(--ink-2);flex:1;}
+  .mlog-title code{font-family:var(--mono);font-size:0.84em;font-weight:500;letter-spacing:-0.01em;overflow-wrap:anywhere;}
+  .mlog-text{font-size:15px;line-height:1.72;color:var(--ink-2);max-width:68ch;}
+  .mlog-code{
+    display:inline-block;max-width:100%;overflow-x:auto;margin-top:16px;
+    font-family:var(--mono);font-size:12.5px;line-height:1.75;
+    background:var(--surface-2);border:1px solid var(--rule);box-shadow:var(--edge);padding:12px 18px;
+  }
+  .mlog-code .c{color:var(--faint);}
+  .mlog-code .del{color:var(--signal);}
+  .mlog-code .add{color:var(--accent);}
+  .mlog-foot{
+    display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin-top:16px;
+    font-family:var(--mono);font-size:11px;color:var(--muted);
+  }
   .oss-link{
     font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);
-    text-decoration:none;margin-top:22px;display:inline-flex;align-items:center;gap:8px;
-    align-self:flex-start;border-bottom:1px solid var(--accent-line);padding-bottom:2px;
+    text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    border-bottom:1px solid var(--accent-line);padding-bottom:2px;
     transition:border-color var(--t-mid) var(--ease-soft);
   }
-  .oss-card:hover .oss-link,.oss-link:hover{border-bottom-color:var(--accent);}
+  .oss-link:hover{border-bottom-color:var(--accent);}
 
   /* ───────────── PROJECTS ───────────── */
   .proj-list{border-top:1px solid var(--rule);}
@@ -353,8 +427,9 @@
     transition:transform .35s var(--ease);
   }
   .proj:hover::before{transform:scaleY(1);}
+  /* left column carries the main language instead of an arbitrary index */
   .proj-idx{
-    font-family:var(--mono);font-size:12px;font-weight:500;color:var(--faint);
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--faint);
     padding-top:5px;transition:color var(--t-mid) var(--ease-soft);
   }
   .proj:hover .proj-idx{color:var(--accent);}
@@ -365,9 +440,9 @@
     letter-spacing:-0.025em;line-height:1.2;
   }
   .proj-flag{
-    font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:0.14em;
+    font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.14em;
     text-transform:uppercase;color:var(--muted);background:var(--surface);
-    border:1px solid var(--rule-2);padding:3px 8px;
+    border:1px solid var(--rule-2);padding:2px 8px;
   }
   .proj-desc{font-size:15px;line-height:1.72;color:var(--ink-2);margin-bottom:18px;}
   .proj-meta{display:flex;flex-wrap:wrap;gap:6px;}
@@ -378,11 +453,19 @@
   }
   .tag:hover{border-color:var(--rule-2);color:var(--ink);}
   .tag.key{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft);}
+
+  /* CI indicator: neutral until the GitHub API confirms the latest run on main */
   .ci{
     display:inline-flex;align-items:center;gap:9px;margin-top:16px;
-    font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.02em;
+    font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.02em;text-decoration:none;
   }
-  .ci .led{width:6px;height:6px;border-radius:50%;background:var(--accent-mid);flex-shrink:0;}
+  .ci .led{width:6px;height:6px;border-radius:50%;background:var(--rule-2);flex-shrink:0;transition:background var(--t-mid) var(--ease-soft);}
+  .ci-state{font-weight:600;}
+  .ci:hover .ci-desc{text-decoration:underline;text-underline-offset:3px;}
+  .ci.pass{color:var(--accent);}
+  .ci.pass .led{background:var(--accent-mid);}
+  .ci.fail{color:var(--signal);}
+  .ci.fail .led{background:var(--signal);}
 
   .proj-side{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:4px;}
   .proj-link{
@@ -406,6 +489,15 @@
   .proj-link.live::before{background:var(--accent-mid);}
   .proj-link.live:hover{background:var(--accent);border-color:var(--accent);color:var(--paper);}
   .proj-link.live:hover::before{background:var(--paper);}
+
+  /* ───────────── STACK ───────────── */
+  .stack{border-top:1px solid var(--rule);}
+  .stack-row{
+    display:grid;grid-template-columns:210px minmax(0,1fr);gap:12px 32px;align-items:baseline;
+    padding:20px 2px;border-bottom:1px solid var(--rule);
+  }
+  .stack-row dt{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-0.015em;color:var(--ink);}
+  .stack-row dd{display:flex;flex-wrap:wrap;gap:6px;}
 
   /* ───────────── GITHUB ───────────── */
   .gh{background:var(--surface);border:1px solid var(--rule);padding:34px;box-shadow:var(--e1),var(--edge);}
@@ -461,6 +553,9 @@
     font-family:var(--mono);font-size:10px;white-space:nowrap;
     opacity:0;pointer-events:none;transition:opacity var(--t-fast) var(--ease-soft);z-index:5;
   }
+  /* edge bars anchor their tooltip inward so it never pushes the page sideways */
+  .gh-tip.l{left:0;transform:none;}
+  .gh-tip.r{left:auto;right:0;transform:none;}
   .gh-bar:hover .gh-tip{opacity:1;}
   .gh-labels{
     display:flex;justify-content:space-between;margin:10px 0 30px;
@@ -530,7 +625,7 @@
     box-shadow:var(--e1),var(--edge);text-decoration:none;
     transition:border-color var(--t-mid) var(--ease-soft),transform .3s var(--ease),box-shadow var(--t-mid) var(--ease-soft);
   }
-  .cc.link:hover{
+  .cc:hover{
     border-color:var(--accent-line);transform:translateY(-4px);
     box-shadow:var(--e3),var(--edge);
   }
@@ -539,7 +634,7 @@
     display:flex;align-items:center;justify-content:center;color:var(--muted);
     transition:color var(--t-mid) var(--ease-soft),border-color var(--t-mid) var(--ease-soft);
   }
-  .cc.link:hover .cc-icon{color:var(--accent);border-color:var(--accent-line);}
+  .cc:hover .cc-icon{color:var(--accent);border-color:var(--accent-line);}
   .cc-icon svg{width:18px;height:18px;}
   .cc-body{min-width:0;}
   .cc-k{
@@ -550,13 +645,26 @@
     font-family:var(--mono);font-size:13.5px;font-weight:500;color:var(--ink);
     word-break:break-word;transition:color var(--t-mid) var(--ease-soft);
   }
-  .cc.link:hover .cc-v{color:var(--accent);}
+  .cc:hover .cc-v{color:var(--accent);}
   .cc .ext{
     position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:12px;
     color:var(--rule-2);opacity:0;transition:opacity var(--t-mid) var(--ease-soft),transform .25s var(--ease);
   }
-  .cc.link:hover .ext{opacity:1;color:var(--accent);transform:translate(2px,-2px);}
-  .cc.static .cc-v{color:var(--ink-2);}
+  .cc:hover .ext{opacity:1;color:var(--accent);transform:translate(2px,-2px);}
+
+  /* the plain facts, as one strip instead of a half-empty row of cards */
+  .facts{
+    display:grid;grid-template-columns:repeat(4,1fr);margin-top:14px;
+    border:1px solid var(--rule);background:var(--surface-2);box-shadow:var(--e1),var(--edge);
+  }
+  .fact{padding:18px 22px;border-right:1px solid var(--rule);min-width:0;}
+  .fact:last-child{border-right:none;}
+  .fact dt{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:6px;
+  }
+  .fact dd{font-family:var(--mono);font-size:13.5px;font-weight:500;color:var(--ink);}
+  .fact dd.sig{color:var(--accent);}
 
   /* ───────────── FOOTER ───────────── */
   footer{border-top:1px solid var(--rule);padding:56px 0 44px;}
@@ -591,19 +699,39 @@
   .js .lift{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease) forwards;}
 
   /* group cascade — order carries down the page, 70ms apart */
-  .js .oss-card:nth-child(2).in,.js .cc:nth-child(2).in{animation-delay:70ms;}
-  .js .oss-card:nth-child(3).in,.js .cc:nth-child(3).in{animation-delay:140ms;}
+  .js .cc:nth-child(2).in{animation-delay:70ms;}
+  .js .cc:nth-child(3).in{animation-delay:140ms;}
   .js .cc:nth-child(4).in{animation-delay:210ms;}
-  .js .cc:nth-child(5).in{animation-delay:280ms;}
-  .js .cc:nth-child(6).in{animation-delay:350ms;}
+  .js .facts.in{animation-delay:280ms;}
 
-  /* slow ring on the indicators that mean "running right now" */
+  /* the one orchestrated moment: main draws down, then each merge lands in order */
+  .js .mlog::before{transform:scaleY(0);transition:transform 1.2s var(--ease);}
+  .js .mlog.in::before{transform:scaleY(1);}
+  .js .mlog .mlog-node{
+    transform:scale(0);
+    transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    transition-delay:calc(var(--i) * 170ms + 260ms);
+  }
+  .js .mlog.in .mlog-node{transform:scale(1);}
+  .js .mlog .mlog-item::before,.js .mlog .mlog-item::after{
+    opacity:0;transition:opacity .5s var(--ease-soft);
+    transition-delay:calc(var(--i) * 170ms + 420ms);
+  }
+  .js .mlog.in .mlog-item::before,.js .mlog.in .mlog-item::after{opacity:1;}
+  .js .mlog .mlog-body{
+    opacity:0;transform:translateY(10px);
+    transition:opacity .6s var(--ease-soft),transform .7s var(--ease);
+    transition-delay:calc(var(--i) * 170ms + 320ms);
+  }
+  .js .mlog.in .mlog-body{opacity:1;transform:none;}
+
+  /* slow ring on the indicators that mean "confirmed right now" */
   @keyframes ping{
     0%{box-shadow:0 0 0 0 var(--accent-line);}
     70%{box-shadow:0 0 0 7px rgba(0,0,0,0);}
     100%{box-shadow:0 0 0 0 rgba(0,0,0,0);}
   }
-  .js .ci .led,.js .gh-meta .led,.js .proj-link.live::before{
+  .js .ci.pass .led,.js .gh-meta .led{
     animation:ping 2.8s var(--ease-soft) infinite;
   }
   .d1{animation-delay:.05s;} .d2{animation-delay:.12s;} .d3{animation-delay:.19s;}
@@ -616,23 +744,34 @@
   ::-webkit-scrollbar-thumb:hover{background:var(--muted);}
 
   /* ───────────── RESPONSIVE ───────────── */
-  @media (max-width:1060px){
-    .nav-links a{padding:8px 7px;letter-spacing:0.06em;}
-    .nav-links a::after{left:7px;right:7px;}
-    .nav-links a .n{margin-right:5px;}
+  @media (max-width:1100px){
+    .nav-toggle{display:inline-flex;}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:0;
+      padding:4px 32px 14px;background:var(--paper);
+      border-bottom:1px solid var(--rule);box-shadow:var(--e2);
+    }
+    #nav.open{background:var(--paper);border-bottom-color:var(--rule);}
+    #nav.open .nav-links{display:flex;}
+    .nav-links a{padding:14px 0;font-size:12px;border-bottom:1px solid var(--rule);}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-links a::after{display:none;}
   }
   @media (max-width:1000px){
     .proj{grid-template-columns:44px minmax(0,1fr);gap:0 20px;}
     .proj-side{grid-column:2;flex-direction:row;flex-wrap:wrap;margin-top:20px;}
   }
   @media (max-width:900px){
-    .oss{grid-template-columns:1fr;}
-    .nav-links{display:none;}
     .colo{grid-template-columns:1fr;gap:26px;text-align:center;}
     .colo .blk.r{text-align:center;}
+    .facts{grid-template-columns:repeat(2,1fr);}
+    .fact:nth-child(2n){border-right:none;}
+    .fact:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+    .stack-row{grid-template-columns:160px minmax(0,1fr);}
   }
   @media (max-width:680px){
     .shell,.nav-in,.hero-in{padding-left:20px;padding-right:20px;}
+    .nav-links{padding-left:20px;padding-right:20px;}
     .hero{padding:120px 0 72px;}
     section{padding:72px 0;}
     .proj{grid-template-columns:1fr;}
@@ -640,6 +779,9 @@
     .proj-side{grid-column:1;}
     .proj::before{left:-20px;}
     .proj::after{inset:-1px -20px;}
+    .mlog{--gutter:46px;--rail:12px;--branch:22px;}
+    .mlog-title{font-size:19px;}
+    .stack-row{grid-template-columns:1fr;gap:12px;}
     .contact-grid{grid-template-columns:1fr;}
     .gh{padding:22px 18px;}
     .gh-stats{grid-template-columns:repeat(2,1fr);}
@@ -650,6 +792,15 @@
     .hstat .k{text-align:left;}
     .scroll-hint{display:none;}
   }
+  @media (max-width:480px){
+    .nav-cta{display:none;}
+    .fact{padding:16px 16px;}
+  }
+  @media (max-width:359px){
+    .facts{grid-template-columns:1fr;}
+    .fact{border-right:none;border-bottom:1px solid var(--rule);}
+    .fact:last-child{border-bottom:none;}
+  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     *,*::before,*::after{
@@ -658,153 +809,234 @@
     }
     .js .reveal,.js .lift{opacity:1;transform:none;animation:none!important;}
     .js .hero h1 .in{transform:none;animation:none!important;}
-    .js .hero-tw{min-height:0;}
+    .js .mlog::before,.js .mlog .mlog-node,.js .mlog .mlog-body,
+    .js .mlog .mlog-item::before,.js .mlog .mlog-item::after{opacity:1;transform:none;transition:none!important;}
+    .js .hero-tw{display:block;}
     .js .hero-tw .ph{
-      position:static;opacity:1;transform:none;margin-right:18px;
+      grid-area:auto;opacity:1;transform:none;margin-right:18px;
       white-space:normal;
     }
+  }
+
+  /* ───────────── PRINT ───────────── */
+  /* "Save as PDF" gives a clean, light, one-column résumé of the page */
+  @media print{
+    :root{
+      --paper:#fff;--surface:#fff;--surface-2:#fff;
+      --ink:#111;--ink-2:#2b2b2b;--muted:#555;--faint:#777;
+      --rule:#d6dad7;--rule-2:#b8bfbb;
+      --accent:#23694f;--accent-mid:#23694f;--accent-soft:transparent;--accent-line:#9fc7b5;
+      --signal:#8a5a14;
+    }
+    @page{margin:16mm 14mm;}
+    body{font-size:10.5pt;}
+    #nav,.skip,.scroll-hint,.hero-cta,.hero-tw,#activity,.colo-end{display:none!important;}
+    .hero{padding:0 0 14px;}
+    .hero h1{font-size:40pt;}
+    section{padding:20px 0;}
+    .sec-head{margin-bottom:16px;}
+    .js .reveal,.js .lift,.js .mlog .mlog-body,.js .hero h1 .in,
+    .js .mlog::before,.js .mlog .mlog-node,.js .mlog .mlog-item::before,.js .mlog .mlog-item::after{
+      opacity:1!important;transform:none!important;animation:none!important;transition:none!important;
+    }
+    *,*::before,*::after{box-shadow:none!important;}
+    .proj::before,.proj::after{display:none;}
+    .mlog-item,.proj,.edu,.stack-row,.cc,.facts{break-inside:avoid;}
+    .oss-link::after,.proj-link::after{content:" · " attr(href);font-weight:400;overflow-wrap:anywhere;}
+    .cc-v[data-print]{font-size:0;}
+    .cc-v[data-print]::after{content:attr(data-print);font-size:10pt;}
+    a{text-decoration:none;}
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav id="nav">
+<nav id="nav" aria-label="Primary">
   <div class="nav-in">
     <a href="#top" class="brand"><span class="b1">D</span>alaklidis<span class="cur">_</span></a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#oss"><span class="n">01</span>OSS</a>
       <a href="#projects"><span class="n">02</span>Work</a>
-      <a href="#activity"><span class="n">03</span>Activity</a>
-      <a href="#research"><span class="n">04</span>Research</a>
-      <a href="#education"><span class="n">05</span>Education</a>
-      <a href="#contact"><span class="n">06</span>Contact</a>
+      <a href="#stack"><span class="n">03</span>Stack</a>
+      <a href="#activity"><span class="n">04</span>Activity</a>
+      <a href="#research"><span class="n">05</span>Research</a>
+      <a href="#education"><span class="n">06</span>Education</a>
+      <a href="#contact"><span class="n">07</span>Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Get in touch</a>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span></button>
+    </div>
   </div>
 </nav>
 
-<a id="top"></a>
-<header class="hero">
+<header class="hero" id="top">
   <div class="hero-in">
     <span class="badge lift d1">
       <span class="led" aria-hidden="true"></span>
-      <span><b>Computer Science Graduate</b> · open to roles</span>
+      <span><b>Computer Science graduate</b> · open to roles</span>
     </span>
     <h1>
       <span class="l1"><span class="in">Dimitrios</span></span>
       <span class="l2"><span class="in">Dalaklidis</span></span>
     </h1>
+    <p class="hero-alt lift d2" lang="el">Δημήτριος Δαλακλίδης</p>
     <p class="hero-role lift d3">Systems &amp; Backend Engineer</p>
     <p class="hero-tw lift d4">
-      <span class="ph">building at the systems level</span>
-      <span class="ph">shipping CI/CD pipelines to AWS</span>
-      <span class="ph">contributing to Amazon Ion</span>
-      <span class="ph">writing clean backend code in Java</span>
+      <span class="ph">working at the systems level in C</span>
+      <span class="ph">building backends in Java and Python</span>
+      <span class="ph">contributing to Ion Fusion</span>
+      <span class="ph">packaging for Docker and Kubernetes</span>
     </p>
     <p class="hero-desc lift d5">
-      Graduate of the School of Sciences with a 4-year degree in Informatics from the public EU/Greek University of Western Macedonia. I work primarily in C and Java with a focus on systems programming and backend development. In addition, personal projects include work with sockets as well as POSIX, process management but also memory. I have experience building production-grade backend services with REST APIs, JWT auth, relational databases and much more while at the same time I am an open-source contributor to ion fusion (Amazon). Currently open to roles in systems, backend or software engineering.
+      I work mainly in C and Java. On the systems side that means sockets, POSIX processes, IPC and multithreading; on the backend, Spring Boot and FastAPI services with JWT auth, role-based access control, MySQL and Redis, packaged for Docker and Kubernetes. I also contribute to <span class="hl">Ion Fusion</span>, a programming language built on Amazon Ion, where <b>four of my pull requests have been merged</b>.
     </p>
     <div class="hero-stats lift d6">
-      <div class="hstat"><div class="v">4<span class="u">Year Degree</span></div><div class="k">Informatics · UoWM</div></div>
-      <div class="hstat"><div class="v">C2<span class="u"></span></div><div class="k">ECPE</div></div>
-      <div class="hstat"><div class="v">OSS<span class="u"></span></div><div class="k">ion fusion (Amazon)</div></div>
-      <div class="hstat"><div class="v">DOI<span class="u"></span></div><div class="k">Zenodo · 10.5281/zenodo.21722897</div></div>
+      <div class="hstat"><div class="v">4<span class="u">merged PRs</span></div><div class="k">Ion Fusion · Amazon Ion</div></div>
+      <div class="hstat"><div class="v">240<span class="u">ECTS</span></div><div class="k">BSc Informatics · UoWM</div></div>
+      <div class="hstat"><div class="v">C2<span class="u">English</span></div><div class="k">ECPE · Michigan</div></div>
+      <div class="hstat"><div class="v">DOI<span class="u">technical report</span></div><div class="k">Zenodo · 10.5281/zenodo.21722897</div></div>
     </div>
     <div class="hero-cta lift d7">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      <!-- shows itself once cv.pdf exists next to this file -->
+      <a href="cv.pdf" class="btn btn-ghost" id="cv-btn" download hidden>Download CV</a>
     </div>
     <div class="scroll-hint lift d8"><span class="bar" aria-hidden="true"></span> SCROLL</div>
   </div>
 </header>
 
+<main id="main" tabindex="-1">
+
 <section id="oss">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">01</span> Contributions <span class="rule"></span></div>
-      <h2 class="sec-title">Open Source Amazon Ion</h2>
-      <p class="sec-sub">Three merged PRs into the core engine. These updates fixed external connection bugs and reorganized the system's internal logic, all under the approval of the project's co-creator.</p>
+      <div class="sec-tag"><span class="num">01</span> Open source <span class="rule"></span></div>
+      <h2 class="sec-title">Merged into Ion Fusion</h2>
+      <p class="sec-sub">Four pull requests merged into <span class="c">fusion-java</span>, the runtime of Ion Fusion, a programmable language for JSON and Amazon Ion data. They run from a serializer bug fix to a public API migration, each reviewed by the project's maintainers, including the co-creator of Amazon Ion.</p>
     </div>
-    <div class="oss">
-      <article class="oss-card reveal">
-        <div class="oss-top">
-          <span class="oss-pr"><span class="hash">PR #</span>490</span>
-          <span class="oss-badge">MERGED</span>
+
+    <ol class="mlog" aria-label="Merged pull requests, newest first">
+      <li class="mlog-item" style="--i:0">
+        <span class="mlog-node" aria-hidden="true"></span>
+        <div class="mlog-body">
+          <div class="mlog-head">
+            <span class="mlog-pr">#580</span>
+            <time class="mlog-date" datetime="2026-09">Sep 2026</time>
+            <span class="mlog-kind">Public API</span>
+            <span class="oss-badge">MERGED</span>
+          </div>
+          <h3 class="mlog-title">Move ionization methods from <code>FusionRuntime</code> to <code>TopLevel</code></h3>
+          <p class="mlog-text"><span class="code-chip">ionize</span> and <span class="code-chip">ionizeMaybe</span> now live on <span class="code-chip">TopLevel</span>, implemented through the <span class="code-chip">withEvaluator()</span> helper from #521. The old methods were removed rather than deprecated once nothing outside the test suite called them, and a test helper that evaluated in one top level but ionized through another now uses the same one for both.</p>
+          <div class="mlog-foot">
+            <span>Fixes #515</span><span>9 files</span>
+            <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/580" target="_blank" rel="noopener">View PR #580</a>
+          </div>
         </div>
-        <div class="oss-body">
-          <h3 class="oss-h">Sexp operator fix</h3>
-          <p class="oss-tag">First contribution</p>
-          <p class="oss-text">Fixed <span class="code-chip">ActualSymbol.write()</span> quoting operator symbols like <span class="code-chip">+</span>, <span class="code-chip">=</span> inside sexp contexts. Added 13 automated tests. Multi-round review with the project's co-creator.</p>
-          <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/490" target="_blank" rel="noopener">View PR</a>
+      </li>
+
+      <li class="mlog-item" style="--i:1">
+        <span class="mlog-node" aria-hidden="true"></span>
+        <div class="mlog-body">
+          <div class="mlog-head">
+            <span class="mlog-pr">#521</span>
+            <time class="mlog-date" datetime="2026-04">Apr 2026</time>
+            <span class="mlog-kind">Interpreter internals</span>
+            <span class="oss-badge">MERGED</span>
+          </div>
+          <h3 class="mlog-title">Centralize <code>FusionInterrupt</code> handling in the embedding layer</h3>
+          <p class="mlog-text">Introduced an <span class="code-chip">EvalTask&lt;T&gt;</span> functional interface and a <span class="code-chip">withEvaluator()</span> helper, so translating a <span class="code-chip">FusionInterrupt</span> into a <span class="code-chip">FusionInterruptedException</span> happens in one place. Every call site in the embedding layer now goes through it, including <span class="code-chip">ionize</span> and <span class="code-chip">ionizeMaybe</span>, which had been missing the handling.</p>
+          <div class="mlog-foot">
+            <span>Closes #517</span>
+            <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/521" target="_blank" rel="noopener">View PR #521</a>
+          </div>
         </div>
-      </article>
-      <article class="oss-card reveal">
-        <div class="oss-top">
-          <span class="oss-pr"><span class="hash">PR #</span>518</span>
-          <span class="oss-badge">MERGED</span>
+      </li>
+
+      <li class="mlog-item" style="--i:2">
+        <span class="mlog-node" aria-hidden="true"></span>
+        <div class="mlog-body">
+          <div class="mlog-head">
+            <span class="mlog-pr">#518</span>
+            <time class="mlog-date" datetime="2026-04">Apr 2026</time>
+            <span class="mlog-kind">Public API</span>
+            <span class="oss-badge">MERGED</span>
+          </div>
+          <h3 class="mlog-title">Add <code>ionize(Object, IonWriter)</code> to <code>TopLevel</code></h3>
+          <p class="mlog-text">Exposed ionization on <span class="code-chip">TopLevel</span>, where a full evaluation context is available, writing Fusion values straight to an <span class="code-chip">IonWriter</span> without building an Ion DOM first. Interrupt handling matches the other <span class="code-chip">StandardTopLevel</span> methods, with Javadoc for the new public method.</p>
+          <div class="mlog-foot">
+            <span>Closes #292</span>
+            <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/518" target="_blank" rel="noopener">View PR #518</a>
+          </div>
         </div>
-        <div class="oss-body">
-          <h3 class="oss-h">Public API extension</h3>
-          <p class="oss-tag">Design-level work</p>
-          <p class="oss-text">Added <span class="code-chip">ionize(Object, IonWriter)</span> to the <span class="code-chip">TopLevel</span> public embedding API. Navigated package constraints, structural baseline and Javadoc for a public interface.</p>
-          <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/518" target="_blank" rel="noopener">View PR</a>
+      </li>
+
+      <li class="mlog-item" style="--i:3">
+        <span class="mlog-node" aria-hidden="true"></span>
+        <div class="mlog-body">
+          <div class="mlog-head">
+            <span class="mlog-pr">#490</span>
+            <time class="mlog-date" datetime="2026-04">Apr 2026</time>
+            <span class="mlog-kind">Bug fix</span>
+            <span class="oss-badge">MERGED</span>
+          </div>
+          <h3 class="mlog-title">Fix <code>write()</code> quoting of symbols in proper sexps</h3>
+          <p class="mlog-text"><span class="code-chip">write</span> was quoting operator symbols such as <span class="code-chip">+</span> inside s-expressions, because its manual path had no sexp context. Proper sexps now delegate to <span class="code-chip">ionize()</span> through a temporary <span class="code-chip">IonWriter</span>; improper ones keep Fusion's dotted-pair rendering.</p>
+          <pre class="mlog-code" aria-label="Output of write before and after the fix"><span class="c">(write (quote (+ 1 2)))</span>
+<span class="del">- ('+' 1 2)</span>
+<span class="add">+ (+ 1 2)</span></pre>
+          <div class="mlog-foot">
+            <span>First contribution</span><span>13 tests</span>
+            <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/490" target="_blank" rel="noopener">View PR #490</a>
+          </div>
         </div>
-      </article>
-      <article class="oss-card reveal">
-        <div class="oss-top">
-          <span class="oss-pr"><span class="hash">PR #</span>521</span>
-          <span class="oss-badge">MERGED</span>
-        </div>
-        <div class="oss-body">
-          <h3 class="oss-h">Interpreter refactor</h3>
-          <p class="oss-tag">Interpreter internals</p>
-          <p class="oss-text">Centralized <span class="code-chip">FusionInterrupt</span> handling. Introduced <span class="code-chip">EvalTask&lt;T&gt;</span> functional interface and <span class="code-chip">withEvaluator()</span> helper, replacing boilerplate across all call sites.</p>
-          <a class="oss-link" href="https://github.com/ion-fusion/fusion-java/pull/521" target="_blank" rel="noopener">View PR</a>
-        </div>
-      </article>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <section id="projects">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">02</span> Selected Work <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">02</span> Selected work <span class="rule"></span></div>
       <h2 class="sec-title">Projects</h2>
-      <p class="sec-sub">Seven projects spanning REST APIs, raw socket programming and CI/CD pipelines. Deployed, not just written.</p>
+      <p class="sec-sub">Seven projects, from sockets and processes in C to containerised backend services.</p>
     </div>
     <div class="proj-list">
 
       <div class="proj reveal">
-        <div class="proj-idx">01</div>
+        <div class="proj-idx">Java</div>
         <div class="proj-main">
           <div class="proj-head">
             <h3 class="proj-name">Greek Hospital Management API</h3>
             <span class="proj-flag">featured</span>
           </div>
-          <p class="proj-desc">Due to the recent shortages in the Greek healthcare system, I was inspired to create an original software that manages hospital patients to be used by clerks and Doctors alike. To that end, I used Secure REST API for said managing of patients, but also hospitalizations as well as medical tests. The software features stateless JsonWebToken authentication, role based access control (DOCTOR / CLERK / ADMIN) enforced at the HTTP method level and atomic patient registration(for every individual person that is) via Spring <span class="code-chip">@Transactional</span>. Lastly, It includes a full Luhn algorithm implementation for validating Greek ΑΜΚΑ numbers with birth date extraction. Last upgrades include unit tests with JUnit 5 and Mockito.</p>
+          <p class="proj-desc">REST API for patients, hospitalisations and medical tests, modelled on the Greek public healthcare system with a Greek-language MySQL schema. Stateless JWT authentication with role-based access control (DOCTOR / CLERK / ADMIN) enforced per HTTP method, strict controller → service → DAO layering on <span class="code-chip">JdbcTemplate</span>, and an atomic clerk workflow that registers and admits a patient in one <span class="code-chip">@Transactional</span> request. ΑΜΚΑ numbers are validated with a full Luhn check, including birth-date extraction. Tested with JUnit 5 and Mockito; the whole stack comes up from a clean clone with <span class="code-chip">docker compose up</span>.</p>
           <div class="proj-meta">
-            <span class="tag key">Java</span><span class="tag key">Spring Boot</span><span class="tag">MySQL</span><span class="tag key">JWT</span><span class="tag">Docker</span>
+            <span class="tag key">Java 17</span><span class="tag key">Spring Boot 3</span><span class="tag">Spring Security</span><span class="tag key">JWT</span><span class="tag">MySQL 8</span><span class="tag">Docker Compose</span><span class="tag">JUnit 5</span>
           </div>
         </div>
         <div class="proj-side">
-          <a class="proj-link live" href="https://spring-boot-greek-hospital-system-production.up.railway.app/api/auth/login" target="_blank" rel="noopener">Live API</a>
           <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/spring-boot-Greek-hospital-system" target="_blank" rel="noopener">spring-boot-greek-hospital-system</a>
         </div>
       </div>
 
       <div class="proj reveal">
-        <div class="proj-idx">02</div>
+        <div class="proj-idx">Python</div>
         <div class="proj-main">
           <div class="proj-head">
             <h3 class="proj-name">api-gateway</h3>
             <span class="proj-flag">featured</span>
           </div>
-          <p class="proj-desc"> API Gateway for routing requests to backend services with resilience and control features. Includes rate limiting (Redis sliding window with Lua), retries with exponential backoff, circuit breaker (CLOSED/OPEN/HALF-OPEN), JWT authentication, tested to ensure security and response caching. Provides admin endpoints for monitoring (metrics, circuit states, rate limits) and a mock service for failure injection and testing. Built with the aim of easing the growing issues regarding traffic in large systems(ie Netflix type services).</p>
+          <p class="proj-desc">Reverse-proxy gateway built with FastAPI, httpx and Redis. Per-IP, per-route rate limiting on a Redis sliding window (an atomic Lua script) with temporary bans, retries with exponential backoff, a circuit breaker (CLOSED → OPEN → HALF-OPEN), JWT auth and response caching, with all shared state in Redis so instances scale horizontally. An admin API exposes metrics, circuit states and limits, and a mock upstream injects failures for testing. Runs under Docker Compose or Kubernetes; CD shipped it to AWS through ECR to EC2, and that target is now defined in Terraform.</p>
           <div class="proj-meta">
-            <span class="tag key">Python</span><span class="tag key">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">AWS EC2/ECR</span><span class="tag">Redis</span><span class="tag key">JWT</span>
+            <span class="tag key">Python</span><span class="tag key">FastAPI</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag key">Kubernetes</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">AWS</span>
           </div>
-          <div class="ci"><span class="led" aria-hidden="true"></span> CI/CD passing  GitHub Actions  AWS ECR  EC2</div>
+          <a class="ci" id="ci-gw" href="https://github.com/DimitriosDalaklidhs/api-gateway/actions" target="_blank" rel="noopener">
+            <span class="led" aria-hidden="true"></span><span class="ci-state">CI</span><span class="ci-desc">ruff + pytest on GitHub Actions</span>
+          </a>
         </div>
         <div class="proj-side">
           <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/api-gateway" target="_blank" rel="noopener">api-gateway</a>
@@ -812,62 +1044,14 @@
       </div>
 
       <div class="proj reveal">
-        <div class="proj-idx">03</div>
-        <div class="proj-main">
-          <div class="proj-head">
-            <h3 class="proj-name">GitProjectServer</h3>
-          </div>
-          <p class="proj-desc">Multithreaded HTTP server written from scratch in C using Windows sockets (Winsock). Handles concurrent connections entirely without a framework: raw socket management.</p>
-          <div class="proj-meta">
-            <span class="tag key">C</span><span class="tag key">Winsock</span><span class="tag">Multithreading</span><span class="tag key">HTTP</span>
-          </div>
-        </div>
-        <div class="proj-side">
-          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/GitProjectServer" target="_blank" rel="noopener">GitProjectServer</a>
-        </div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-idx">04</div>
-        <div class="proj-main">
-          <div class="proj-head">
-            <h3 class="proj-name">unix-process-management</h3>
-          </div>
-          <p class="proj-desc">Unix Process Management demonstrates Unix interprocess communication using a shared pipe across multiple child processes. Covers the full process lifecycle: creation, concurrent execution, and synchronization via fork(), getpid(), pipe(), and wait(). Packaged with a multi stage Docker build; no local C toolchain required. Using Docker we are able to reduce overall size by more than 70 percent and significantly reduce the attack surface. This repository was heavily inspired by the brilliant book of Andrew S. Tanenbaum and Herbert Bos, "Modern Operating Systems" .</p>
-          <div class="proj-meta">
-            <span class="tag key">C</span><span class="tag key">Unix</span><span class="tag">fork()</span><span class="tag">IPC</span>
-          </div>
-        </div>
-        <div class="proj-side">
-          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/unix-process-management" target="_blank" rel="noopener">unix-process-management</a>
-        </div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-idx">05</div>
-        <div class="proj-main">
-          <div class="proj-head">
-            <h3 class="proj-name">tcp-prime-factors-server</h3>
-          </div>
-          <p class="proj-desc">My second ever app and a big learning experience, It has been modernized recently with Docker as have most of my projects in a conscious effort to get acquainted with newer technology. TCP client server application. The client sends integers over a socket and then the server computes and returns their prime factors. Built for the distributed systems course at UowM. This was the equivalent to beginner calculator apps, only difference being that this is at the low-level.</p>
-          <div class="proj-meta">
-            <span class="tag key">C</span><span class="tag key">TCP/IP</span><span class="tag">Sockets</span>
-          </div>
-        </div>
-        <div class="proj-side">
-          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" target="_blank" rel="noopener">tcp-prime-factors</a>
-        </div>
-      </div>
-
-      <div class="proj reveal">
-        <div class="proj-idx">06</div>
+        <div class="proj-idx">Bash</div>
         <div class="proj-main">
           <div class="proj-head">
             <h3 class="proj-name">process-supervisor</h3>
           </div>
-          <p class="proj-desc">Process supervisor written in Bash for managing and autorestarting long running workloads in Docker and Kubernetes environments.</p>
+          <p class="proj-desc">Process supervisor in Bash, containerised with Docker and deployed on Kubernetes. It handles PID 1 semantics, signal propagation, a CPU and memory watchdog and automatic restarts, built to understand what Kubernetes, systemd and supervisord actually do when they manage a process.</p>
           <div class="proj-meta">
-            <span class="tag key">Bash</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
+            <span class="tag key">Bash</span><span class="tag">Linux signals</span><span class="tag">Docker</span><span class="tag key">Kubernetes</span>
           </div>
         </div>
         <div class="proj-side">
@@ -876,12 +1060,60 @@
       </div>
 
       <div class="proj reveal">
-        <div class="proj-idx">07</div>
+        <div class="proj-idx">C</div>
+        <div class="proj-main">
+          <div class="proj-head">
+            <h3 class="proj-name">GitProjectServer</h3>
+          </div>
+          <p class="proj-desc">HTTP/1.1 server in C on Winsock2, with no framework underneath. One thread per connection via <span class="code-chip">_beginthreadex</span>, IPv4/IPv6 dual-stack sockets, static files with MIME detection, path-traversal protection, and a 10-second receive timeout so a hung client can't hold a thread.</p>
+          <div class="proj-meta">
+            <span class="tag key">C</span><span class="tag key">Winsock2</span><span class="tag">Multithreading</span><span class="tag">HTTP/1.1</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/GitProjectServer" target="_blank" rel="noopener">GitProjectServer</a>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">C</div>
+        <div class="proj-main">
+          <div class="proj-head">
+            <h3 class="proj-name">unix-process-management</h3>
+          </div>
+          <p class="proj-desc">Five child processes fan messages into one Unix pipe; the parent drains the read end until every writer has closed and <span class="code-chip">read()</span> returns EOF, then reaps each child with <span class="code-chip">wait()</span>. Written for the Distributed Systems course at UoWM, following Tanenbaum and Bos's <em>Modern Operating Systems</em>. A multi-stage Docker build removes the need for a local C toolchain and cuts the image by more than 70%.</p>
+          <div class="proj-meta">
+            <span class="tag key">C</span><span class="tag key">POSIX</span><span class="tag">fork()</span><span class="tag">pipe()</span><span class="tag">Docker</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/unix-process-management" target="_blank" rel="noopener">unix-process-management</a>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">C</div>
+        <div class="proj-main">
+          <div class="proj-head">
+            <h3 class="proj-name">tcp-prime-factors-server</h3>
+          </div>
+          <p class="proj-desc">TCP client and server in C. The server forks a child per connection and returns the prime factors of each integer the client sends, validating input with <span class="code-chip">strtol</span> and reaping children with <span class="code-chip">waitpid(WNOHANG)</span>. Started as Distributed Systems coursework at UoWM; the multi-stage Docker build ships only the stripped binary.</p>
+          <div class="proj-meta">
+            <span class="tag key">C</span><span class="tag key">TCP/IP</span><span class="tag">Sockets</span><span class="tag">fork()</span><span class="tag">Docker</span>
+          </div>
+        </div>
+        <div class="proj-side">
+          <a class="proj-link" href="https://github.com/DimitriosDalaklidhs/tcp-prime-factors-server-client" target="_blank" rel="noopener">tcp-prime-factors</a>
+        </div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-idx">Java</div>
         <div class="proj-main">
           <div class="proj-head">
             <h3 class="proj-name">Library-System-Java-MySQL</h3>
           </div>
-          <p class="proj-desc">Full library management system with Swing GUI and MySQL backend. Features user authentication, book search, borrowed book tracking and automated database initialization via SQL schemas.With this one, I wanted to prove that although I am a young engineer I can still work with legacy technology like SWING.</p>
+          <p class="proj-desc">Desktop library manager with a Java Swing GUI over MySQL: login, search by title or author, borrowed-book tracking with due dates and returns, and automatic database setup from SQL schema scripts. Coursework, and a deliberate exercise in Swing, the toolkit a lot of enterprise desktop software still runs on.</p>
           <div class="proj-meta">
             <span class="tag key">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span>
           </div>
@@ -895,30 +1127,60 @@
   </div>
 </section>
 
+<section id="stack">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-tag"><span class="num">03</span> Toolbox <span class="rule"></span></div>
+      <h2 class="sec-title">Stack</h2>
+      <p class="sec-sub">Grouped by layer. Everything listed is used in at least one project above.</p>
+    </div>
+    <dl class="stack reveal">
+      <div class="stack-row">
+        <dt>Languages</dt>
+        <dd><span class="tag key">C</span><span class="tag key">Java</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">SQL</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt>Systems</dt>
+        <dd><span class="tag">fork() / wait()</span><span class="tag">pipes &amp; IPC</span><span class="tag">TCP/IP sockets</span><span class="tag">Winsock2</span><span class="tag">multithreading</span><span class="tag">signal handling</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt>Backend</dt>
+        <dd><span class="tag key">Spring Boot</span><span class="tag">Spring Security</span><span class="tag key">FastAPI</span><span class="tag">REST</span><span class="tag">JWT</span><span class="tag">MySQL</span><span class="tag">Redis</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt>Infrastructure</dt>
+        <dd><span class="tag key">Docker</span><span class="tag">Docker Compose</span><span class="tag key">Kubernetes</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">AWS EC2 / ECR</span><span class="tag">Linux</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt>Testing &amp; tooling</dt>
+        <dd><span class="tag">JUnit 5</span><span class="tag">Mockito</span><span class="tag">pytest</span><span class="tag">ruff</span><span class="tag">Maven</span><span class="tag">Git</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
 <section id="activity">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">03</span> In Progress <span class="rule"></span></div>
-      <h2 class="sec-title">Live GitHub Activity</h2>
-      <p class="sec-sub">Commits, pull requests and repository activity from the last ninety days. Pulled in real time from the GitHub API.</p>
+      <div class="sec-tag"><span class="num">04</span> Activity <span class="rule"></span></div>
+      <h2 class="sec-title">Live GitHub activity</h2>
+      <p class="sec-sub">Public events from the last 90 days, fetched from the GitHub API when the page loads.</p>
     </div>
     <div class="gh reveal">
       <div class="gh-head">
         <div class="gh-handle">@DimitriosDalaklidhs</div>
         <div class="gh-meta"><span class="led" aria-hidden="true"></span> live · last 90 days</div>
       </div>
-      <div id="gh-status" class="gh-status">Loading activity from GitHub…</div>
-      <div id="gh-content" style="display:none;">
+      <div id="gh-status" class="gh-status" role="status">Loading activity from GitHub…</div>
+      <div id="gh-content" hidden>
         <div class="gh-stats">
           <div class="gh-cell"><div class="v" id="gh-events">0</div><div class="k">Events</div></div>
-          <div class="gh-cell"><div class="v" id="gh-pushes">0</div><div class="k">Commits</div></div>
-          <div class="gh-cell"><div class="v" id="gh-prs">0</div><div class="k">PRs</div></div>
-          <div class="gh-cell"><div class="v" id="gh-repos">0</div><div class="k">Repos</div></div>
+          <div class="gh-cell"><div class="v" id="gh-pushes">0</div><div class="k" id="gh-pushes-k">Commits</div></div>
+          <div class="gh-cell"><div class="v" id="gh-prs">0</div><div class="k">Pull requests</div></div>
+          <div class="gh-cell"><div class="v" id="gh-repos">0</div><div class="k">Repos active</div></div>
         </div>
-        <div class="gh-chart-wrap">
-          <div class="gh-chart" id="gh-chart"></div>
-          <div class="gh-labels"><span>90d ago</span><span>60d</span><span>30d</span><span>today</span></div>
-        </div>
+        <div class="gh-chart" id="gh-chart" role="img" aria-label="Activity over the last 90 days"></div>
+        <div class="gh-labels" aria-hidden="true"><span>90d ago</span><span>60d</span><span>30d</span><span>today</span></div>
         <div class="gh-repos-h">Most active repositories</div>
         <div id="gh-repo-list"></div>
       </div>
@@ -929,7 +1191,7 @@
 <section id="research">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">04</span> Published <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">05</span> Published <span class="rule"></span></div>
       <h2 class="sec-title">Research</h2>
       <p class="sec-sub">A technical report on time-series preprocessing, deposited on Zenodo with a permanent DOI.</p>
     </div>
@@ -938,7 +1200,7 @@
         <h3 class="edu-deg">Segmentation and Sampling in Time-Series Data</h3>
         <span class="edu-status">● Published</span>
       </div>
-      <p class="pub-alt">Η Σημασία της Διαχείρισης Χρόνου και Χώρου: Segmentation και Δειγματοληψία σε Δεδομένα Χρονοσειρών</p>
+      <p class="pub-alt" lang="el">Η Σημασία της Διαχείρισης Χρόνου και Χώρου: Segmentation και Δειγματοληψία σε Δεδομένα Χρονοσειρών</p>
       <div class="edu-school">Zenodo · technical report · not peer reviewed</div>
       <p class="edu-detail">How sampling and windowing decisions bound the information available to every downstream algorithm. Covers the Nyquist–Shannon criterion and aliasing, resampling and interpolation for aligning sensors running at different rates, sliding-window versus event-based segmentation, label noise at window boundaries, and how overlapping windows leak data across the train/test split when the split happens after windowing instead of at source level. Written in Greek with an English abstract; eight references and six original figures generated in Python.</p>
       <div class="edu-meta">
@@ -957,21 +1219,21 @@
 <section id="education">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">05</span> Background <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">06</span> Background <span class="rule"></span></div>
       <h2 class="sec-title">Education</h2>
-      <p class="sec-sub">4-year Informatics degree completed at the University of Western Macedonia, with a C2 certificate in English from the University of Michigan.</p>
+      <p class="sec-sub">BSc in Informatics from the University of Western Macedonia, and C2-level English (ECPE, University of Michigan).</p>
     </div>
     <div class="edu reveal">
       <div class="edu-head">
-        <h3 class="edu-deg">4-Year Informatics Degree</h3>
+        <h3 class="edu-deg">BSc in Informatics</h3>
         <span class="edu-status">● Graduated</span>
       </div>
-      <div class="edu-school">University of Western Macedonia</div>
-      <p class="edu-detail">Four-year curriculum focused on advanced mathematics with a lot of emphasis also placed on systems programming and network design. I also was privileged to attend programs of top professors, with Doctorates from notable Universities, about databases and software engineering. Final year projects included production quality backend systems and Python projects.</p>
+      <div class="edu-school">University of Western Macedonia · School of Sciences</div>
+      <p class="edu-detail">Four-year, 240-ECTS programme with a strong mathematics core and coursework across systems programming, computer networks, distributed systems, databases and software engineering. The TCP prime-factors server and the pipe IPC demo above both began as Distributed Systems coursework.</p>
       <div class="edu-meta">
-        <div class="edu-m"><div class="k">Duration</div><div class="v">4 Years</div></div>
+        <div class="edu-m"><div class="k">Duration</div><div class="v">4 years · 240 ECTS</div></div>
         <div class="edu-m"><div class="k">English</div><div class="v sig">ECPE C2</div></div>
-        <div class="edu-m"><div class="k">Completed</div><div class="v">July 2026</div></div>
+        <div class="edu-m"><div class="k">Graduated</div><div class="v">June 2026</div></div>
       </div>
     </div>
   </div>
@@ -980,60 +1242,56 @@
 <section id="contact">
   <div class="shell">
     <div class="sec-head reveal">
-      <div class="sec-tag"><span class="num">06</span> Get in Touch <span class="rule"></span></div>
+      <div class="sec-tag"><span class="num">07</span> Get in touch <span class="rule"></span></div>
       <h2 class="sec-title">Contact</h2>
-      <p class="sec-sub">Open to systems, backend and software engineering roles. Based in Thessaloniki, available to start now.</p>
+      <p class="sec-sub">Open to systems, backend and software engineering roles. Based in Thessaloniki and available to start now.</p>
     </div>
     <div class="contact-grid">
-      <a href="EMAILPLACEHOLDER" class="cc link reveal" data-type="email">
+      <a href="EMAILPLACEHOLDER" class="cc reveal">
         <span class="ext" aria-hidden="true">↗</span>
         <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8l9 6 9-6M3 7h18v10H3z"/></svg></div>
         <div class="cc-body"><div class="cc-k">Email</div><div class="cc-v">dalaklidesdemetres AT gmail</div></div>
       </a>
-      <a href="https://github.com/DimitriosDalaklidhs" class="cc link reveal" target="_blank" rel="noopener">
-        <span class="ext" aria-hidden="true">↗</span>
-        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.3.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.64 1.66.23 2.88.1 3.18.77.84 1.23 1.92 1.23 3.22 0 4.6-2.8 5.63-5.48 5.92.43.37.8 1.1.8 2.22v3.3c0 .32.2.7.83.58A12 12 0 0 0 12 .3z"/></svg></div>
-        <div class="cc-body"><div class="cc-k">GitHub</div><div class="cc-v">DimitriosDalaklidhs</div></div>
-      </a>
-      <a href="https://linkedin.com/in/dimitris-dalaklidis-a72838397" class="cc link reveal" target="_blank" rel="noopener">
+      <a href="https://linkedin.com/in/dimitris-dalaklidis-a72838397" class="cc reveal" target="_blank" rel="noopener">
         <span class="ext" aria-hidden="true">↗</span>
         <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-8H5.7v8h2.6zM7 9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.2v-4.6c0-2.5-1.3-3.6-3.1-3.6-1.4 0-2.1.8-2.4 1.4v-1.2h-2.6v8h2.6V14c0-.2 0-.5.1-.6.2-.5.6-1 1.4-1 1 0 1.4.7 1.4 1.8v4h2.6z"/></svg></div>
-        <div class="cc-body"><div class="cc-k">LinkedIn</div><div class="cc-v">dimitris-dalaklidis</div></div>
+        <div class="cc-body"><div class="cc-k">LinkedIn</div><div class="cc-v" data-print="linkedin.com/in/dimitris-dalaklidis-a72838397">dimitris-dalaklidis</div></div>
       </a>
-      <a href="https://orcid.org/0009-0005-5798-1545" class="cc link reveal" target="_blank" rel="noopener">
+      <a href="https://github.com/DimitriosDalaklidhs" class="cc reveal" target="_blank" rel="noopener">
+        <span class="ext" aria-hidden="true">↗</span>
+        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.3.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.64 1.66.23 2.88.1 3.18.77.84 1.23 1.92 1.23 3.22 0 4.6-2.8 5.63-5.48 5.92.43.37.8 1.1.8 2.22v3.3c0 .32.2.7.83.58A12 12 0 0 0 12 .3z"/></svg></div>
+        <div class="cc-body"><div class="cc-k">GitHub</div><div class="cc-v" data-print="github.com/DimitriosDalaklidhs">DimitriosDalaklidhs</div></div>
+      </a>
+      <a href="https://orcid.org/0009-0005-5798-1545" class="cc reveal" target="_blank" rel="noopener">
         <span class="ext" aria-hidden="true">↗</span>
         <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9v7M9 6.6v.01M13 9h1.6a3.5 3.5 0 0 1 0 7H13V9z"/></svg></div>
-        <div class="cc-body"><div class="cc-k">ORCID</div><div class="cc-v">0009-0005-5798-1545</div></div>
+        <div class="cc-body"><div class="cc-k">ORCID</div><div class="cc-v" data-print="orcid.org/0009-0005-5798-1545">0009-0005-5798-1545</div></div>
       </a>
-      <div class="cc static reveal">
-        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s-7-7.58-7-13a7 7 0 1 1 14 0c0 5.42-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <div class="cc-body"><div class="cc-k">Location</div><div class="cc-v">Thessaloniki, GR</div></div>
-      </div>
-      <div class="cc static reveal">
-        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg></div>
-        <div class="cc-body"><div class="cc-k">Status</div><div class="cc-v">Available now</div></div>
-      </div>
-      <div class="cc static reveal">
-        <div class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div>
-        <div class="cc-body"><div class="cc-k">Military service</div><div class="cc-v">Deferred to 2031</div></div>
-      </div>
     </div>
+    <dl class="facts reveal">
+      <div class="fact"><dt>Location</dt><dd>Thessaloniki, GR</dd></div>
+      <div class="fact"><dt>Local time</dt><dd id="lt">Europe/Athens</dd></div>
+      <div class="fact"><dt>Availability</dt><dd class="sig">Immediately</dd></div>
+      <div class="fact"><dt>Military service</dt><dd>Deferred to 2031</dd></div>
+    </dl>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="shell">
     <div class="colo">
       <div class="blk l">
         <div><span class="k">Location</span> · <span class="v">Thessaloniki, GR</span></div>
-        <div><span class="k">Timezone</span> · <span class="v sig">UTC+03:00 EET</span></div>
+        <div><span class="k">Timezone</span> · <span class="v sig" id="tz">Europe/Athens (EET/EEST)</span></div>
       </div>
       <div class="blk mid">
         <div class="name">Dimitrios Dalaklidis</div>
         <div class="role">Systems &amp; Backend Engineer</div>
       </div>
       <div class="blk r">
-        <div><span class="k">University</span> · <span class="v">University of Western Macedonia (4-year degree)</span></div>
+        <div><span class="k">Degree</span> · <span class="v">BSc Informatics, UoWM</span></div>
         <div><span class="k">Status</span> · <span class="v sig">Available immediately</span></div>
       </div>
     </div>
@@ -1042,9 +1300,10 @@
 </footer>
 
 <script>
-/* nav: scrolled state + scrollspy */
+/* nav: scrolled state, scrollspy, mobile menu */
 const nav = document.getElementById('nav');
-const links = [...document.querySelectorAll('.nav-links a')];
+const toggle = nav.querySelector('.nav-toggle');
+const links = [...nav.querySelectorAll('.nav-links a')];
 const secs = links.map(a => document.querySelector(a.getAttribute('href')));
 function onScroll(){
   nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -1054,16 +1313,36 @@ function onScroll(){
 }
 window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
+function setMenu(open){
+  nav.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+}
+toggle.addEventListener('click', ()=> setMenu(!nav.classList.contains('open')));
+links.forEach(a => a.addEventListener('click', ()=> setMenu(false)));
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && nav.classList.contains('open')){ setMenu(false); toggle.focus(); }
+});
+document.addEventListener('click', e => {
+  if(nav.classList.contains('open') && !nav.contains(e.target)) setMenu(false);
+});
+
 /* reveal on scroll — the stagger itself lives in CSS */
-const obs = new IntersectionObserver((es)=>{
-  es.forEach((e)=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
-},{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const toReveal = document.querySelectorAll('.reveal, .mlog');
+if('IntersectionObserver' in window){
+  const obs = new IntersectionObserver((es)=>{
+    es.forEach((e)=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  toReveal.forEach(el=>obs.observe(el));
+} else {
+  toReveal.forEach(el=>el.classList.add('in'));
+}
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* phrase strip: crossfade in place. reduced motion keeps all four visible. */
 (function(){
   const ph=[...document.querySelectorAll('.hero-tw .ph')];
-  if(!ph.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!ph.length || reduceMotion) return;
   let i=0; ph[0].classList.add('on');
   setInterval(()=>{
     ph[i].classList.remove('on');
@@ -1078,62 +1357,170 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     a.href='mailto:'+u+'@'+d; const v=a.querySelector('.cc-v'); if(v) v.textContent=u+'@'+d; });
 })();
 
-/* live github */
-(async function(){
-  const USER='DimitriosDalaklidhs';
-  const statusEl=document.getElementById('gh-status'), contentEl=document.getElementById('gh-content');
+/* local time in Athens: EET (UTC+2) in winter, EEST (UTC+3) in summer */
+(function(){
+  const lt = document.getElementById('lt'), tz = document.getElementById('tz');
+  if(!(lt || tz) || !window.Intl) return;
   try{
-    const [eRes,rRes]=await Promise.all([
-      fetch(`https://api.github.com/users/${USER}/events/public?per_page=100`),
-      fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=pushed`)
-    ]);
-    if(!eRes.ok||!rRes.ok) throw new Error('unavailable');
-    const events=await eRes.json(), repos=await rRes.json();
-    let pushes=0, prs=0; const repoAct={}; const now=Date.now(); const days=new Array(90).fill(0);
-    events.forEach(ev=>{
-      const ago=Math.floor((now-new Date(ev.created_at).getTime())/864e5);
-      if(ago>=0&&ago<90) days[89-ago]++;
-      if(ev.type==='PushEvent') pushes+=ev.payload?.commits?.length||1;
-      if(ev.type==='PullRequestEvent') prs++;
-      if(ev.repo?.name) repoAct[ev.repo.name]=(repoAct[ev.repo.name]||0)+1;
-    });
-    const set=(id,v)=>{ const el=document.getElementById(id); animate(el,v); };
-    function animate(el,target){ let n=0; const step=Math.max(1,Math.ceil(target/26));
-      const t=setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t);} el.textContent=n; },22); }
-    set('gh-events',events.length); set('gh-pushes',pushes); set('gh-prs',prs); set('gh-repos',repos.length);
-
-    const chart=document.getElementById('gh-chart'); const BARS=45; const g=[];
-    for(let i=0;i<BARS;i++) g.push(days[i*2]+(days[i*2+1]||0));
-    const max=Math.max(...g,1);
-    g.forEach((v,i)=>{
-      const b=document.createElement('div'); b.className='gh-bar';
-      b.style.height=Math.max(2,(v/max)*100)+'%';
-      let lvl=0; if(v>0)lvl=1; if(v>max*.25)lvl=2; if(v>max*.5)lvl=3; if(v>max*.75)lvl=4;
-      b.dataset.lvl=lvl;
-      const ago=90-(i*2);
-      const tip=document.createElement('div'); tip.className='gh-tip';
-      tip.textContent=`${v} event${v===1?'':'s'} · ~${ago}d`;
-      b.appendChild(tip); chart.appendChild(b);
-    });
-
-    const top=Object.entries(repoAct).sort((a,b)=>b[1]-a[1]).slice(0,5);
-    const list=document.getElementById('gh-repo-list');
-    const render=(name,lang,right)=>{
-      const a=document.createElement('a'); a.className='gh-repo';
-      a.href=`https://github.com/${name}`; a.target='_blank'; a.rel='noopener';
-      a.innerHTML=`<div><span class="gh-repo-name">${name.split('/')[1]||name}</span> ${lang?`<span class="gh-repo-lang">· ${lang}</span>`:''}</div><span class="gh-repo-stat">${right}</span>`;
-      list.appendChild(a);
+    const hm = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+    const pf = new Intl.DateTimeFormat('en-US',{timeZone:'Europe/Athens',hourCycle:'h23',
+      year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric'});
+    const offsetMin = d => {
+      const p = {}; pf.formatToParts(d).forEach(x => { p[x.type] = x.value; });
+      const wall = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute);
+      return Math.round((wall - (d.getTime() - d.getTime() % 60000)) / 60000);
     };
-    if(top.length){
-      top.forEach(([name,count])=>{ const r=repos.find(x=>x.full_name===name); render(name, r?.language||'', `${count} event${count===1?'':'s'}`); });
-    } else {
-      repos.slice(0,5).forEach(r=> render(r.full_name, r.language||'', `★ ${r.stargazers_count}`));
-    }
-    statusEl.style.display='none'; contentEl.style.display='block';
+    const tick = () => {
+      const d = new Date(), h = offsetMin(d) / 60, abbr = h === 3 ? 'EEST' : 'EET';
+      if(lt) lt.textContent = `${hm.format(d)} ${abbr}`;
+      if(tz) tz.textContent = `UTC+${String(h).padStart(2,'0')}:00 · ${abbr}`;
+    };
+    tick(); setInterval(tick, 30000);
+  }catch(e){ /* static fallback text stays */ }
+})();
+
+/* GitHub: one fetch helper + a short cache, so reloads don't burn the 60/hour anonymous limit */
+const GH = 'DimitriosDalaklidhs';
+async function ghJSON(path){
+  const r = await fetch('https://api.github.com' + path);
+  if(!r.ok){ const e = new Error('GitHub ' + r.status); e.status = r.status; throw e; }
+  return r.json();
+}
+async function cached(key, ttl, load){
+  try{ const c = JSON.parse(localStorage.getItem(key) || 'null'); if(c && Date.now() - c.t < ttl) return c.d; }catch(e){}
+  const d = await load();
+  try{ localStorage.setItem(key, JSON.stringify({t: Date.now(), d})); }catch(e){}
+  return d;
+}
+
+/* live github activity */
+(async function(){
+  const statusEl = document.getElementById('gh-status'), contentEl = document.getElementById('gh-content');
+  if(!statusEl || !contentEl) return;
+  let data;
+  try{
+    data = await cached('gh-activity-v2', 15*60e3, async () => {
+      const events = [];
+      for(let page = 1; page <= 3; page++){
+        let batch;
+        try{ batch = await ghJSON(`/users/${GH}/events/public?per_page=100&page=${page}`); }
+        catch(err){ if(page === 1) throw err; break; }
+        batch.forEach(ev => {
+          const p = ev.payload || {};
+          events.push({
+            type: ev.type, at: ev.created_at, repo: ev.repo && ev.repo.name,
+            n: p.number != null ? p.number : (p.pull_request ? p.pull_request.number : null),
+            /* newer Events API payloads may omit commit lists; count pushes if so */
+            commits: typeof p.size === 'number' ? p.size : (Array.isArray(p.commits) ? p.commits.length : null)
+          });
+        });
+        if(batch.length < 100) break;
+      }
+      const repos = (await ghJSON(`/users/${GH}/repos?per_page=100&sort=pushed`))
+        .map(r => ({name: r.full_name, lang: r.language || ''}));
+      return {events, repos};
+    });
   }catch(err){
-    statusEl.className='gh-status err';
-    statusEl.innerHTML=`Couldn't load live data. <a href="https://github.com/${USER}" target="_blank" rel="noopener">View profile on GitHub →</a>`;
+    statusEl.classList.add('err');
+    statusEl.textContent = err && err.status === 403
+      ? 'GitHub allows 60 anonymous API requests an hour per network, and this network has used them. '
+      : 'GitHub’s API didn’t respond. ';
+    const a = document.createElement('a');
+    a.href = `https://github.com/${GH}`; a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = 'See the activity on GitHub';
+    statusEl.appendChild(a);
+    return;
   }
+
+  const DAY = 864e5, now = Date.now(), days = new Array(90).fill(0), repoAct = {}, prs = new Set();
+  let inWindow = 0, pushes = 0, commits = 0, counted = false;
+  data.events.forEach(ev => {
+    const ago = Math.floor((now - new Date(ev.at).getTime()) / DAY);
+    if(ago < 0 || ago >= 90) return;
+    inWindow++; days[89 - ago]++;
+    if(ev.repo) repoAct[ev.repo] = (repoAct[ev.repo] || 0) + 1;
+    if(ev.type === 'PushEvent'){
+      pushes++;
+      if(ev.commits != null){ counted = true; commits += ev.commits; } else commits += 1;
+    }
+    if(ev.type === 'PullRequestEvent' && ev.n != null) prs.add(ev.repo + '#' + ev.n);
+  });
+
+  const set = (id, v) => {
+    const el = document.getElementById(id);
+    if(reduceMotion){ el.textContent = v; return; }
+    let n = 0; const step = Math.max(1, Math.ceil(v / 26));
+    const t = setInterval(() => { n += step; if(n >= v){ n = v; clearInterval(t); } el.textContent = n; }, 22);
+  };
+  set('gh-events', inWindow);
+  set('gh-pushes', counted ? commits : pushes);
+  document.getElementById('gh-pushes-k').textContent = counted ? 'Commits' : 'Pushes';
+  set('gh-prs', prs.size);
+  set('gh-repos', Object.keys(repoAct).length);
+
+  const chart = document.getElementById('gh-chart');
+  const fmt = new Intl.DateTimeFormat('en-GB', {day:'numeric', month:'short'});
+  const BARS = 45, g = [];
+  for(let i = 0; i < BARS; i++) g.push(days[i*2] + days[i*2 + 1]);
+  const max = Math.max(...g, 1);
+  g.forEach((v, i) => {
+    const b = document.createElement('div'); b.className = 'gh-bar';
+    b.style.height = Math.max(2, (v / max) * 100) + '%';
+    let lvl = 0; if(v > 0) lvl = 1; if(v > max*.25) lvl = 2; if(v > max*.5) lvl = 3; if(v > max*.75) lvl = 4;
+    b.dataset.lvl = lvl;
+    const from = new Date(now - (89 - i*2) * DAY), to = new Date(now - (88 - i*2) * DAY);
+    const tip = document.createElement('div');
+    tip.className = 'gh-tip' + (i < 8 ? ' l' : i > BARS - 9 ? ' r' : '');
+    tip.textContent = `${v} event${v === 1 ? '' : 's'} · ${fmt.format(from)}–${fmt.format(to)}`;
+    b.appendChild(tip); chart.appendChild(b);
+  });
+  chart.setAttribute('aria-label', `${inWindow} public GitHub events in the last 90 days`);
+
+  const list = document.getElementById('gh-repo-list');
+  const langOf = name => (data.repos.find(r => r.name === name) || {}).lang || '';
+  const row = (name, lang, right) => {
+    const a = document.createElement('a'); a.className = 'gh-repo';
+    a.href = `https://github.com/${name}`; a.target = '_blank'; a.rel = 'noopener';
+    const left = document.createElement('div');
+    const nm = document.createElement('span'); nm.className = 'gh-repo-name';
+    /* own repos show their short name; upstream projects keep owner/name */
+    nm.textContent = name.startsWith(GH + '/') ? name.slice(GH.length + 1) : name;
+    left.appendChild(nm);
+    if(lang){ const l = document.createElement('span'); l.className = 'gh-repo-lang'; l.textContent = ' · ' + lang; left.appendChild(l); }
+    const st = document.createElement('span'); st.className = 'gh-repo-stat'; st.textContent = right;
+    a.append(left, st); list.appendChild(a);
+  };
+  const top = Object.entries(repoAct).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  if(top.length) top.forEach(([name, c]) => row(name, langOf(name), `${c} event${c === 1 ? '' : 's'}`));
+  else data.repos.slice(0, 5).forEach(r => row(r.name, r.lang, 'recently pushed'));
+
+  statusEl.hidden = true; contentEl.hidden = false;
+})();
+
+/* api-gateway CI: the real result of the latest run on main, never a hard-coded "passing" */
+(async function(){
+  const el = document.getElementById('ci-gw'); if(!el) return;
+  try{
+    const run = await cached('ci-gw-v1', 10*60e3, async () => {
+      const j = await ghJSON('/repos/DimitriosDalaklidhs/api-gateway/actions/workflows/main.yml/runs?branch=main&status=completed&per_page=1');
+      const r = j.workflow_runs && j.workflow_runs[0];
+      return r ? {c: r.conclusion, u: r.html_url} : null;
+    });
+    if(!run) return;
+    const ok = run.c === 'success';
+    el.classList.add(ok ? 'pass' : 'fail');
+    el.querySelector('.ci-state').textContent = ok ? 'CI passing'
+      : run.c === 'failure' ? 'CI failing' : 'CI ' + String(run.c || 'unknown').replace(/_/g, ' ');
+    if(run.u) el.href = run.u;
+  }catch(e){ /* keep the neutral label */ }
+})();
+
+/* CV button: appears by itself once cv.pdf is uploaded next to this page */
+(function(){
+  const b = document.getElementById('cv-btn');
+  if(!b || !/^https?:$/.test(location.protocol)) return;
+  fetch(b.getAttribute('href'), {method:'HEAD', cache:'no-store'})
+    .then(r => { if(r.ok) b.hidden = false; }).catch(() => {});
 })();
 </script>
 
